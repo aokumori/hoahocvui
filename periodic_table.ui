@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
@@ -5,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>817</width>
-    <height>506</height>
+    <width>1130</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Interactive Periodic Table</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#FFFFFF</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -19,206 +23,303 @@
     min-height: 40px;
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
-    font-size:7px
+    font-size:8px
 }</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <property name="contentsMargins" stdset="0">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>20</width>
-      <height>20</height>
-     </rect>
-    </property>
     <property name="spacing">
      <number>5</number>
     </property>
-    <item row="11" column="0" colspan="18">
-     <widget class="QWidget" name="legendWidget" native="true" />
-    </item>
-    
-    
-    <item row="5" column="16">
-     <widget class="QPushButton" name="PB_Br">
-      <property name="text">
-       <string>&#8323;&#8325;
-Br
-&#7495;&#691;&#7506;&#7504;&#7590;&#8319;&#7497;</string>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="PB_Na">
+      <property name="styleSheet">
+       <string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
       </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
-    </item>
-    
-    <item row="5" column="17">
-     <widget class="QPushButton" name="PB_Kr">
       <property name="text">
-       <string>&#8323;&#8326;
-Kr
-&#7503;&#691;&#696;&#7510;&#7511;&#7506;&#8319;</string>
+       <string>₁₁
+Na
+ˢᵒᵈᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="6" column="0">
-     <widget class="QPushButton" name="PB_Rb">
+    <item row="3" column="18">
+     <widget class="QPushButton" name="PB_Ne">
+      <property name="styleSheet">
+       <string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string>
+      </property>
       <property name="text">
-       <string>&#8323;&#8327;
-Rb
-&#691;&#7512;&#7495;&#7590;&#7496;&#7590;&#7512;&#7504;</string>
+       <string>₁₀
+Ne
+ⁿᵉᵒⁿ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="5" column="15">
-     <widget class="QPushButton" name="PB_Se">
+    <item row="3" column="16">
+     <widget class="QPushButton" name="PB_O">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
+      </property>
       <property name="text">
-       <string>&#8323;&#8324;
-Se
-&#738;&#7497;&#737;&#7497;&#8319;&#7590;&#7512;&#7504;</string>
+       <string>₈
+O
+ᵒˣʸᵍᵉⁿ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="6" column="1">
-     <widget class="QPushButton" name="PB_Sr">
+    <item row="5" column="13">
+     <widget class="QPushButton" name="PB_Al">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+      </property>
       <property name="text">
-       <string>&#8323;&#8328;
-Sr
-&#738;&#7511;&#691;&#7506;&#8319;&#7511;&#7590;&#7512;&#7504;</string>
+       <string>₁₃
+Al
+ᵃˡᵘᵐᶦⁿᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="6" column="2">
-     <widget class="QPushButton" name="PB_Y">
+    <item row="3" column="14">
+     <widget class="QPushButton" name="PB_C">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
+      </property>
       <property name="text">
-       <string>&#8323;&#8329;
-Y
-&#696;&#7511;&#7511;&#691;&#7590;&#7512;&#7504;</string>
+       <string>₆
+C
+ᶜᵃʳᵇᵒⁿ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="6" column="5">
-     <widget class="QPushButton" name="PB_Mo">
+    <item row="7" column="18">
+     <widget class="QPushButton" name="PB_Xe">
+      <property name="styleSheet">
+       <string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string>
+      </property>
       <property name="text">
-       <string>&#8324;&#8322;
-Mo
-&#7504;&#7506;&#737;&#696;&#7495;&#7496;&#7497;&#8319;&#7512;&#7504;</string>
+       <string>₅₄
+Xe
+ˣᵉⁿᵒⁿ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="6" column="4">
-     <widget class="QPushButton" name="PB_Nb">
-      <property name="text">
-       <string>&#8324;&#8321;
-Nb
-&#8319;&#7590;&#7506;&#7495;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="6" column="6">
-     <widget class="QPushButton" name="PB_Tc">
-      <property name="text">
-       <string>&#8324;&#8323;
-Tc
-&#7511;&#7497;&#7580;&#688;&#8319;&#7497;&#7511;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="6" column="7">
-     <widget class="QPushButton" name="PB_Ru">
-      <property name="text">
-       <string>&#8324;&#8324;
-Ru
-&#691;&#7512;&#7511;&#688;&#7497;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="6" column="3">
-     <widget class="QPushButton" name="PB_Zr">
-      <property name="text">
-       <string>&#8324;&#8320;
-Zr
-&#7611;&#7590;&#691;&#7580;&#7506;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="6" column="8">
-     <widget class="QPushButton" name="PB_Rh">
-      <property name="text">
-       <string>&#8324;&#8325;
-Rh
-&#691;&#688;&#7506;&#7496;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="6" column="9">
-     <widget class="QPushButton" name="PB_Pd">
-      <property name="text">
-       <string>&#8324;&#8326;
-Pd
-&#7510;&#7491;&#737;&#737;&#7491;&#7496;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="6" column="12">
-     <widget class="QPushButton" name="PB_In">
-      <property name="text">
-       <string>&#8324;&#8329;
-In
-&#7590;&#8319;&#7496;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
-    </item>
-    
-    <item row="6" column="10">
-     <widget class="QPushButton" name="PB_Ag">
-      <property name="text">
-       <string>&#8324;&#8327;
-Ag
-&#738;&#7590;&#737;&#7515;&#7497;&#691;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="6" column="11">
+    <item row="7" column="12">
      <widget class="QPushButton" name="PB_Cd">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
       <property name="text">
-       <string>&#8324;&#8328;
+       <string>₄₈
 Cd
-&#7580;&#7491;&#7496;&#7504;&#7590;&#7512;&#7504;</string>
+ᶜᵃᵈᵐᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="1" column="0">
-     <widget class="QPushButton" name="PB_H">
+    <item row="6" column="17">
+     <widget class="QPushButton" name="PB_Br">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
+      </property>
       <property name="text">
-       <string>&#8321;
-H
-&#688;&#696;&#7496;&#691;&#7506;&#7501;&#7497;&#8319;</string>
+       <string>₃₅
+Br
+ᵇʳᵒᵐᶦⁿᵉ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="1" column="17">
+    <item row="7" column="1">
+     <widget class="QPushButton" name="PB_Rb">
+      <property name="styleSheet">
+       <string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+      </property>
+      <property name="text">
+       <string>₃₇
+Rb
+ʳᵘᵇᶦᵈᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="2">
+     <widget class="QPushButton" name="PB_Sr">
+      <property name="styleSheet">
+       <string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string>
+      </property>
+      <property name="text">
+       <string>₃₈
+Sr
+ˢᵗʳᵒⁿᵗᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="16">
+     <widget class="QPushButton" name="PB_Se">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
+      </property>
+      <property name="text">
+       <string>₃₄
+Se
+ˢᵉˡᵉⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="18">
+     <widget class="QPushButton" name="PB_Kr">
+      <property name="styleSheet">
+       <string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string>
+      </property>
+      <property name="text">
+       <string>₃₆
+Kr
+ᵏʳʸᵖᵗᵒⁿ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="6">
+     <widget class="QPushButton" name="PB_Mo">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₄₂
+Mo
+ᵐᵒˡʸᵇᵈᵉⁿᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="3">
+     <widget class="QPushButton" name="PB_Y">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₃₉
+Y
+ʸᵗᵗʳᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="5">
+     <widget class="QPushButton" name="PB_Nb">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₄₁
+Nb
+ⁿᶦᵒᵇᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="8">
+     <widget class="QPushButton" name="PB_Ru">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₄₄
+Ru
+ʳᵘᵗʰᵉⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="7">
+     <widget class="QPushButton" name="PB_Tc">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₄₃
+Tc
+ᵗᵉᶜʰⁿᵉᵗᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="4">
+     <widget class="QPushButton" name="PB_Zr">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₄₀
+Zr
+ᶻᶦʳᶜᵒⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="9">
+     <widget class="QPushButton" name="PB_Rh">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₄₅
+Rh
+ʳʰᵒᵈᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="7" column="13">
+     <widget class="QPushButton" name="PB_In">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+      </property>
+      <property name="text">
+       <string>₄₉
+In
+ᶦⁿᵈᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="11">
+     <widget class="QPushButton" name="PB_Ag">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₄₇
+Ag
+ˢᶦˡᵛᵉʳ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="10">
+     <widget class="QPushButton" name="PB_Pd">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₄₆
+Pd
+ᵖᵃˡˡᵃᵈᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="18">
      <widget class="QPushButton" name="PB_He">
-      <property name="text">
-       <string>&#8322;
-He
-&#688;&#7497;&#737;&#7590;&#7512;&#7504;</string>
+      <property name="styleSheet">
+       <string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string></property></widget>
+      <property name="text">
+       <string>₂
+He
+ʰᵉˡᶦᵘᵐ</string>
+      </property>
+     </widget>
     </item>
-    <item row="0" column="0" colspan="18">
+    <item row="1" column="1" colspan="18">
      <widget class="QLabel" name="titleLabel">
       <property name="font">
        <font>
@@ -238,707 +339,814 @@ He
       </property>
      </widget>
     </item>
-    
-    <item row="2" column="12">
-     <widget class="QPushButton" name="PB_B">
-      <property name="text">
-       <string>&#8325;
-B
-&#7495;&#7506;&#691;&#7506;&#8319;</string>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="PB_H">
+      <property name="styleSheet">
+       <string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
       </property>
-     <property name="styleSheet"><string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string></property></widget>
+      <property name="text">
+       <string>₁
+H
+ʰʸᵈʳᵒᵍᵉⁿ</string>
+      </property>
+     </widget>
     </item>
-    
-    <item row="2" column="14">
+    <item row="3" column="15">
      <widget class="QPushButton" name="PB_N">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
+      </property>
       <property name="text">
-       <string>&#8327;
+       <string>₇
 N
-&#8319;&#7590;&#7511;&#691;&#7506;&#7501;&#7497;&#8319;</string>
+ⁿᶦᵗʳᵒᵍᵉⁿ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="2" column="0">
+    <item row="3" column="13">
+     <widget class="QPushButton" name="PB_B">
+      <property name="styleSheet">
+       <string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string>
+      </property>
+      <property name="text">
+       <string>₅
+B
+ᵇᵒʳᵒⁿ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
      <widget class="QPushButton" name="PB_Li">
+      <property name="styleSheet">
+       <string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+      </property>
       <property name="text">
-       <string>&#8323;
+       <string>₃
 Li
-&#737;&#7590;&#7511;&#688;&#7590;&#7512;&#7504;</string>
+ˡᶦᵗʰᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="2" column="13">
-     <widget class="QPushButton" name="PB_C">
-      <property name="text">
-       <string>&#8326;
-C
-&#7580;&#7491;&#691;&#7495;&#7506;&#8319;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
-    </item>
-    
-    <item row="2" column="15">
-     <widget class="QPushButton" name="PB_O">
-      <property name="text">
-       <string>&#8328;
-O
-&#7506;&#739;&#696;&#7501;&#7497;&#8319;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
-    </item>
-    
-    <item row="4" column="12">
-     <widget class="QPushButton" name="PB_Al">
-      <property name="text">
-       <string>&#8321;&#8323;
-Al
-&#7491;&#737;&#7512;&#7504;&#7590;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
-    </item>
-    
-    <item row="4" column="1">
-     <widget class="QPushButton" name="PB_Mg">
-      <property name="text">
-       <string>&#8321;&#8322;
-Mg
-&#7504;&#7491;&#7501;&#8319;&#7497;&#738;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string></property></widget>
-    </item>
-    
-    <item row="2" column="16">
+    <item row="3" column="17">
      <widget class="QPushButton" name="PB_F">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
+      </property>
       <property name="text">
-       <string>&#8329;
+       <string>₉
 F
-&#7584;&#737;&#7512;&#7506;&#691;&#7590;&#8319;&#7497;</string>
+ᶠˡᵘᵒʳᶦⁿᵉ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="2" column="17">
-     <widget class="QPushButton" name="PB_Ne">
-      <property name="text">
-       <string>&#8321;&#8320;
-Ne
-&#8319;&#7497;&#7506;&#8319;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string></property></widget>
-    </item>
-    
-    <item row="4" column="0">
-     <widget class="QPushButton" name="PB_Na">
-      <property name="text">
-       <string>&#8321;&#8321;
-Na
-&#738;&#7506;&#7496;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string></property></widget>
-    </item>
-    
-    <item row="4" column="16">
-     <widget class="QPushButton" name="PB_Cl">
-      <property name="text">
-       <string>&#8321;&#8327;
-Cl
-&#7580;&#688;&#737;&#7506;&#691;&#7590;&#8319;&#7497;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
-    </item>
-    
-    <item row="4" column="13">
-     <widget class="QPushButton" name="PB_Si">
-      <property name="text">
-       <string>&#8321;&#8324;
-Si
-&#738;&#7590;&#737;&#7590;&#7580;&#7506;&#8319;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string></property></widget>
-    </item>
-    
-    <item row="4" column="15">
-     <widget class="QPushButton" name="PB_S">
-      <property name="text">
-       <string>&#8321;&#8326;
-S
-&#738;&#7512;&#737;&#7584;&#7512;&#691;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
-    </item>
-    
-    <item row="4" column="17">
-     <widget class="QPushButton" name="PB_Ar">
-      <property name="text">
-       <string>&#8321;&#8328;
-Ar
-&#7491;&#691;&#7501;&#7506;&#8319;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string></property></widget>
-    </item>
-    
-    <item row="5" column="0">
-     <widget class="QPushButton" name="PB_K">
-      <property name="text">
-       <string>&#8321;&#8329;
-K
-&#7510;&#7506;&#7511;&#7491;&#738;&#738;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string></property></widget>
-    </item>
-    
-    <item row="4" column="14">
-     <widget class="QPushButton" name="PB_P">
-      <property name="text">
-       <string>&#8321;&#8325;
-P
-&#7510;&#688;&#7506;&#738;&#7510;&#688;&#7506;&#691;&#7512;&#738;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
-    </item>
-    
-    <item row="5" column="3">
-     <widget class="QPushButton" name="PB_Ti">
-      <property name="text">
-       <string>&#8322;&#8322;
-Ti
-&#7511;&#7590;&#7511;&#7491;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="5" column="5">
-     <widget class="QPushButton" name="PB_Cr">
-      <property name="text">
-       <string>&#8322;&#8324;
-Cr
-&#7580;&#688;&#691;&#7506;&#7504;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="5" column="1">
-     <widget class="QPushButton" name="PB_Ca">
-      <property name="text">
-       <string>&#8322;&#8320;
-Ca
-&#7580;&#7491;&#737;&#7580;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string></property></widget>
-    </item>
-    
     <item row="5" column="2">
-     <widget class="QPushButton" name="PB_Sc">
-      <property name="text">
-       <string>&#8322;&#8321;
-Sc
-&#738;&#7580;&#7491;&#8319;&#7496;&#7590;&#7512;&#7504;</string>
+     <widget class="QPushButton" name="PB_Mg">
+      <property name="styleSheet">
+       <string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string>
       </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="5" column="7">
-     <widget class="QPushButton" name="PB_Fe">
       <property name="text">
-       <string>&#8322;&#8326;
-Fe
-&#7590;&#691;&#7506;&#8319;</string>
+       <string>₁₂
+Mg
+ᵐᵃᵍⁿᵉˢᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="5" column="6">
-     <widget class="QPushButton" name="PB_Mn">
-      <property name="text">
-       <string>&#8322;&#8325;
-Mn
-&#7504;&#7491;&#8319;&#7501;&#7491;&#8319;&#7497;&#738;&#7497;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
+    <item row="12" column="1" colspan="18">
+     <widget class="QWidget" name="legendWidget" native="true"/>
     </item>
-    
-    <item row="5" column="8">
-     <widget class="QPushButton" name="PB_Co">
-      <property name="text">
-       <string>&#8322;&#8327;
-Co
-&#7580;&#7506;&#7495;&#7491;&#737;&#7511;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="5" column="9">
-     <widget class="QPushButton" name="PB_Ni">
-      <property name="text">
-       <string>&#8322;&#8328;
-Ni
-&#8319;&#7590;&#7580;&#7503;&#7497;&#737;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="5" column="10">
-     <widget class="QPushButton" name="PB_Cu">
-      <property name="text">
-       <string>&#8322;&#8329;
-Cu
-&#7580;&#7506;&#7510;&#7510;&#7497;&#691;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="5" column="14">
-     <widget class="QPushButton" name="PB_As">
-      <property name="text">
-       <string>&#8323;&#8323;
-As
-&#7491;&#691;&#738;&#7497;&#8319;&#7590;&#7580;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string></property></widget>
-    </item>
-    
-    <item row="5" column="12">
-     <widget class="QPushButton" name="PB_Ga">
-      <property name="text">
-       <string>&#8323;&#8321;
-Ga
-&#7501;&#7491;&#737;&#737;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
-    </item>
-    
-    <item row="5" column="13">
-     <widget class="QPushButton" name="PB_Ge">
-      <property name="text">
-       <string>&#8323;&#8322;
-Ge
-&#7501;&#7497;&#691;&#7504;&#7491;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string></property></widget>
-    </item>
-    
-    <item row="5" column="11">
-     <widget class="QPushButton" name="PB_Zn">
-      <property name="text">
-       <string>&#8323;&#8320;
-Zn
-&#7611;&#7590;&#8319;&#7580;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="6" column="17">
-     <widget class="QPushButton" name="PB_Xe">
-      <property name="text">
-       <string>&#8325;&#8324;
-Xe
-&#739;&#7497;&#8319;&#7506;&#8319;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string></property></widget>
-    </item>
-    
-    <item row="6" column="14">
-     <widget class="QPushButton" name="PB_Sb">
-      <property name="text">
-       <string>&#8325;&#8321;
-Sb
-&#7491;&#8319;&#7511;&#7590;&#7504;&#7506;&#8319;&#696;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string></property></widget>
-    </item>
-    
-    <item row="6" column="13">
-     <widget class="QPushButton" name="PB_Sn">
-      <property name="text">
-       <string>&#8325;&#8320;
-Sn
-&#7511;&#7590;&#8319;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
-    </item>
-    
-    <item row="6" column="16">
-     <widget class="QPushButton" name="PB_I">
-      <property name="text">
-       <string>&#8325;&#8323;
-I
-&#7590;&#7506;&#7496;&#7590;&#8319;&#7497;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
-    </item>
-    
-    <item row="6" column="15">
-     <widget class="QPushButton" name="PB_Te">
-      <property name="text">
-       <string>&#8325;&#8322;
-Te
-&#7511;&#7497;&#737;&#737;&#7512;&#691;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string></property></widget>
-    </item>
-    
-    <item row="7" column="0">
-     <widget class="QPushButton" name="PB_Cs">
-      <property name="text">
-       <string>&#8325;&#8325;
-Cs
-&#7580;&#7497;&#738;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string></property></widget>
-    </item>
-    
-    <item row="7" column="2">
-     <widget class="QPushButton" name="PB_La">
-      <property name="text">
-       <string>&#8325;&#8327;
-La
-&#737;&#7491;&#8319;&#7511;&#688;&#7491;&#8319;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
-    </item>
-    
-    <item row="7" column="3">
-     <widget class="QPushButton" name="PB_Hf">
-      <property name="text">
-       <string>&#8327;&#8322;
-Hf
-&#688;&#7491;&#7584;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="7" column="4">
-     <widget class="QPushButton" name="PB_Ta">
-      <property name="text">
-       <string>&#8327;&#8323;
-Ta
-&#7511;&#7491;&#8319;&#7511;&#7491;&#737;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="7" column="1">
-     <widget class="QPushButton" name="PB_Ba">
-      <property name="text">
-       <string>&#8325;&#8326;
-Ba
-&#7495;&#7491;&#691;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string></property></widget>
-    </item>
-    
-    <item row="7" column="5">
-     <widget class="QPushButton" name="PB_W">
-      <property name="text">
-       <string>&#8327;&#8324;
-W
-&#7511;&#7512;&#8319;&#7501;&#738;&#7511;&#7497;&#8319;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="7" column="8">
-     <widget class="QPushButton" name="PB_Os">
-      <property name="text">
-       <string>&#8327;&#8326;
-Os
-&#7506;&#738;&#7504;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="7" column="10">
-     <widget class="QPushButton" name="PB_Au">
-      <property name="text">
-       <string>&#8327;&#8329;
-Au
-&#7501;&#7506;&#737;&#7496;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="7" column="6">
-     <widget class="QPushButton" name="PB_Re">
-      <property name="text">
-       <string>&#8327;&#8325;
-Re
-&#691;&#688;&#7497;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="7" column="9">
-     <widget class="QPushButton" name="PB_Pt">
-      <property name="text">
-       <string>&#8327;&#8328;
-Pt
-&#7510;&#737;&#7491;&#7511;&#7590;&#8319;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="7" column="7">
-     <widget class="QPushButton" name="PB_Ir">
-      <property name="text">
-       <string>&#8327;&#8327;
-Ir
-&#7590;&#691;&#7590;&#7496;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="7" column="11">
-     <widget class="QPushButton" name="PB_Hg">
-      <property name="text">
-       <string>&#8328;&#8320;
-Hg
-&#7504;&#7497;&#691;&#7580;&#7512;&#691;&#696;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="7" column="12">
-     <widget class="QPushButton" name="PB_Tl">
-      <property name="text">
-       <string>&#8328;&#8321;
-Tl
-&#7511;&#688;&#7491;&#737;&#737;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
-    </item>
-    
-    <item row="7" column="15">
-     <widget class="QPushButton" name="PB_Po">
-      <property name="text">
-       <string>&#8328;&#8324;
-Po
-&#7510;&#7506;&#737;&#7506;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
-    </item>
-    
-    <item row="7" column="14">
-     <widget class="QPushButton" name="PB_Bi">
-      <property name="text">
-       <string>&#8328;&#8323;
-Bi
-&#7495;&#7590;&#738;&#7504;&#7512;&#7511;&#688;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
-    </item>
-    
-    <item row="7" column="13">
-     <widget class="QPushButton" name="PB_Pb">
-      <property name="text">
-       <string>&#8328;&#8322;
-Pb
-&#737;&#7497;&#7491;&#7496;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
-    </item>
-    
-    <item row="7" column="16">
-     <widget class="QPushButton" name="PB_At">
-      <property name="text">
-       <string>&#8328;&#8325;
-At
-&#7491;&#738;&#7511;&#7491;&#7511;&#7590;&#8319;&#7497;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string></property></widget>
-    </item>
-    
-    <item row="8" column="0">
-     <widget class="QPushButton" name="PB_Fr">
-      <property name="text">
-       <string>&#8328;&#8327;
-Fr
-&#7584;&#691;&#7491;&#8319;&#7580;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string></property></widget>
-    </item>
-    
-    <item row="8" column="2">
-     <widget class="QPushButton" name="PB_Ac">
-      <property name="text">
-       <string>&#8328;&#8329;
-Ac
-&#7491;&#7580;&#7511;&#7590;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
-    </item>
-    
-    <item row="8" column="1">
-     <widget class="QPushButton" name="PB_Ra">
-      <property name="text">
-       <string>&#8328;&#8328;
-Ra
-&#691;&#7491;&#7496;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string></property></widget>
-    </item>
-    
-    <item row="7" column="17">
-     <widget class="QPushButton" name="PB_Rn">
-      <property name="text">
-       <string>&#8328;&#8326;
-Rn
-&#691;&#7491;&#7496;&#7506;&#8319;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string></property></widget>
-    </item>
-    
-    <item row="8" column="3">
-     <widget class="QPushButton" name="PB_Rf">
-      <property name="text">
-       <string>&#8321;&#8320;&#8324;
-Rf
-&#691;&#7512;&#7511;&#688;&#7497;&#691;&#7584;&#7506;&#691;&#7496;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="8" column="7">
-     <widget class="QPushButton" name="PB_Bh">
-      <property name="text">
-       <string>&#8321;&#8320;&#8327;
-Bh
-&#7495;&#7506;&#688;&#691;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="8" column="5">
-     <widget class="QPushButton" name="PB_Db">
-      <property name="text">
-       <string>&#8321;&#8320;&#8325;
-Db
-&#7496;&#7512;&#7495;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="8" column="4">
-     <widget class="QPushButton" name="PB_Sg">
-      <property name="text">
-       <string>&#8321;&#8320;&#8326;
-Sg
-&#738;&#7497;&#7491;&#7495;&#7506;&#691;&#7501;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="8" column="8">
-     <widget class="QPushButton" name="PB_Hs">
-      <property name="text">
-       <string>&#8321;&#8320;&#8328;
-Hs
-&#688;&#7491;&#738;&#738;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="8" column="6">
-     <widget class="QPushButton" name="PB_Mt">
-      <property name="text">
-       <string>&#8321;&#8320;&#8329;
-Mt
-&#7504;&#7497;&#7590;&#7511;&#8319;&#7497;&#691;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="8" column="10">
-     <widget class="QPushButton" name="PB_Ds">
-      <property name="text">
-       <string>&#8321;&#8321;&#8320;
-Ds
-&#7496;&#7491;&#691;&#7504;&#738;&#7511;&#7491;&#7496;&#7511;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
     <item row="8" column="13">
-     <widget class="QPushButton" name="PB_Nh">
-      <property name="text">
-       <string>&#8321;&#8321;&#8323;
-Nh
-&#8319;&#7590;&#688;&#7506;&#8319;&#7590;&#7512;&#7504;</string>
+     <widget class="QPushButton" name="PB_Tl">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
       </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
-    </item>
-    
-    <item row="8" column="9">
-     <widget class="QPushButton" name="PB_Rg">
       <property name="text">
-       <string>&#8321;&#8321;&#8321;
-Rg
-&#691;&#7506;&#7497;&#8319;&#7511;&#7501;&#7497;&#8319;&#7590;&#7512;&#7504;</string>
+       <string>₈₁
+Tl
+ᵗʰᵃˡˡᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
+     </widget>
     </item>
-    
+    <item row="8" column="16">
+     <widget class="QPushButton" name="PB_Po">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+      </property>
+      <property name="text">
+       <string>₈₄
+Po
+ᵖᵒˡᵒⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
     <item row="8" column="12">
-     <widget class="QPushButton" name="PB_Cn">
-      <property name="text">
-       <string>&#8321;&#8321;&#8322;
-Cn
-&#7580;&#7506;&#7510;&#7497;&#691;&#8319;&#7590;&#7580;&#7590;&#7512;&#7504;</string>
+     <widget class="QPushButton" name="PB_Hg">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
       </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
-    </item>
-    
-    <item row="8" column="14">
-     <widget class="QPushButton" name="PB_Fl">
       <property name="text">
-       <string>&#8321;&#8321;&#8324;
-Fl
-&#7584;&#737;&#7497;&#691;&#7506;&#7515;&#7590;&#7512;&#7504;</string>
+       <string>₈₀
+Hg
+ᵐᵉʳᶜᵘʳʸ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="8" column="11">
-     <widget class="QPushButton" name="PB_Cn">
+    <item row="9" column="1">
+     <widget class="QPushButton" name="PB_Fr">
+      <property name="styleSheet">
+       <string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+      </property>
       <property name="text">
-       <string>&#8321;&#8321;&#8322;
-Cn
-&#7580;&#7506;&#7510;&#7497;&#691;&#8319;&#7590;&#7580;&#7590;&#7512;&#7504;</string>
+       <string>₈₇
+Fr
+ᶠʳᵃⁿᶜᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
+     </widget>
     </item>
-    
     <item row="8" column="17">
-     <widget class="QPushButton" name="PB_Og">
-      <property name="text">
-       <string>&#8321;&#8321;&#8328;
-Og
-&#7506;&#7501;&#7491;&#8319;&#7497;&#738;&#738;&#7506;&#8319;</string>
+     <widget class="QPushButton" name="PB_At">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string></property></widget>
-    </item>
-    
-    <item row="9" column="3">
-     <widget class="QPushButton" name="PB_Ce">
       <property name="text">
-       <string>&#8325;&#8328;
-Ce
-&#7580;&#7497;&#691;&#7590;&#7512;&#7504;</string>
+       <string>₈₅
+At
+ᵃˢᵗᵃᵗᶦⁿᵉ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    
+    <item row="8" column="14">
+     <widget class="QPushButton" name="PB_Pb">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+      </property>
+      <property name="text">
+       <string>₈₂
+Pb
+ˡᵉᵃᵈ</string>
+      </property>
+     </widget>
+    </item>
     <item row="8" column="15">
-     <widget class="QPushButton" name="PB_Mc">
-      <property name="text">
-       <string>&#8321;&#8321;&#8325;
-Mc
-&#7504;&#7506;&#738;&#7580;&#7506;&#7515;&#7590;&#7512;&#7504;</string>
+     <widget class="QPushButton" name="PB_Bi">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
       </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
+      <property name="text">
+       <string>₈₃
+Bi
+ᵇᶦˢᵐᵘᵗʰ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="18">
+     <widget class="QPushButton" name="PB_Rn">
+      <property name="styleSheet">
+       <string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string>
+      </property>
+      <property name="text">
+       <string>₈₆
+Rn
+ʳᵃᵈᵒⁿ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="3">
+     <widget class="QPushButton" name="PB_Ac">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
+      <property name="text">
+       <string>₈₉
+Ac
+ᵃᶜᵗᶦⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
     </item>
     <item row="9" column="2">
+     <widget class="QPushButton" name="PB_Ra">
+      <property name="styleSheet">
+       <string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string>
+      </property>
+      <property name="text">
+       <string>₈₈
+Ra
+ʳᵃᵈᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="16">
+     <widget class="QPushButton" name="PB_S">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
+      </property>
+      <property name="text">
+       <string>₁₆
+S
+ˢᵘˡᶠᵘʳ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="17">
+     <widget class="QPushButton" name="PB_Cl">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
+      </property>
+      <property name="text">
+       <string>₁₇
+Cl
+ᶜʰˡᵒʳᶦⁿᵉ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="14">
+     <widget class="QPushButton" name="PB_Si">
+      <property name="styleSheet">
+       <string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string>
+      </property>
+      <property name="text">
+       <string>₁₄
+Si
+ˢᶦˡᶦᶜᵒⁿ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="PB_K">
+      <property name="styleSheet">
+       <string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+      </property>
+      <property name="text">
+       <string>₁₉
+K
+ᵖᵒᵗᵃˢˢᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="4">
+     <widget class="QPushButton" name="PB_Ti">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₂₂
+Ti
+ᵗᶦᵗᵃⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="18">
+     <widget class="QPushButton" name="PB_Ar">
+      <property name="styleSheet">
+       <string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string>
+      </property>
+      <property name="text">
+       <string>₁₈
+Ar
+ᵃʳᵍᵒⁿ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="15">
+     <widget class="QPushButton" name="PB_P">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
+      </property>
+      <property name="text">
+       <string>₁₅
+P
+ᵖʰᵒˢᵖʰᵒʳᵘˢ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="8">
+     <widget class="QPushButton" name="PB_Fe">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₂₆
+Fe
+ᶦʳᵒⁿ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QPushButton" name="PB_Ca">
+      <property name="styleSheet">
+       <string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string>
+      </property>
+      <property name="text">
+       <string>₂₀
+Ca
+ᶜᵃˡᶜᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3">
+     <widget class="QPushButton" name="PB_Sc">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₂₁
+Sc
+ˢᶜᵃⁿᵈᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="6">
+     <widget class="QPushButton" name="PB_Cr">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₂₄
+Cr
+ᶜʰʳᵒᵐᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="10">
+     <widget class="QPushButton" name="PB_Ni">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₂₈
+Ni
+ⁿᶦᶜᵏᵉˡ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="7">
+     <widget class="QPushButton" name="PB_Mn">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₂₅
+Mn
+ᵐᵃⁿᵍᵃⁿᵉˢᵉ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="9">
+     <widget class="QPushButton" name="PB_Co">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₂₇
+Co
+ᶜᵒᵇᵃˡᵗ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="14">
+     <widget class="QPushButton" name="PB_Ge">
+      <property name="styleSheet">
+       <string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string>
+      </property>
+      <property name="text">
+       <string>₃₂
+Ge
+ᵍᵉʳᵐᵃⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="15">
+     <widget class="QPushButton" name="PB_As">
+      <property name="styleSheet">
+       <string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string>
+      </property>
+      <property name="text">
+       <string>₃₃
+As
+ᵃʳˢᵉⁿᶦᶜ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="11">
+     <widget class="QPushButton" name="PB_Cu">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₂₉
+Cu
+ᶜᵒᵖᵖᵉʳ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="13">
+     <widget class="QPushButton" name="PB_Ga">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+      </property>
+      <property name="text">
+       <string>₃₁
+Ga
+ᵍᵃˡˡᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="12">
+     <widget class="QPushButton" name="PB_Zn">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₃₀
+Zn
+ᶻᶦⁿᶜ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="15">
+     <widget class="QPushButton" name="PB_Sb">
+      <property name="styleSheet">
+       <string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string>
+      </property>
+      <property name="text">
+       <string>₅₁
+Sb
+ᵃⁿᵗᶦᵐᵒⁿʸ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="16">
+     <widget class="QPushButton" name="PB_Te">
+      <property name="styleSheet">
+       <string>background-color: #fef7e0; color: #965a04; border: 1px solid #965a04;</string>
+      </property>
+      <property name="text">
+       <string>₅₂
+Te
+ᵗᵉˡˡᵘʳᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QPushButton" name="PB_Cs">
+      <property name="styleSheet">
+       <string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+      </property>
+      <property name="text">
+       <string>₅₅
+Cs
+ᶜᵉˢᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="14">
+     <widget class="QPushButton" name="PB_Sn">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+      </property>
+      <property name="text">
+       <string>₅₀
+Sn
+ᵗᶦⁿ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="17">
+     <widget class="QPushButton" name="PB_I">
+      <property name="styleSheet">
+       <string>background-color: #e2eeff; color: #0d47a1; border: 1px solid #0d47a1;</string>
+      </property>
+      <property name="text">
+       <string>₅₃
+I
+ᶦᵒᵈᶦⁿᵉ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="5">
+     <widget class="QPushButton" name="PB_Ta">
+      <property name="styleSheet">
+       <string notr="true">background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₇₃
+Ta
+ᵗᵃⁿᵗᵃˡᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="4">
+     <widget class="QPushButton" name="PB_Hf">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₇₂
+Hf
+ʰᵃᶠⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="3">
+     <widget class="QPushButton" name="PB_La">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
+      <property name="text">
+       <string>₅₇
+La
+ˡᵃⁿᵗʰᵃⁿᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="11">
+     <widget class="QPushButton" name="PB_Au">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₇₉
+Au
+ᵍᵒˡᵈ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="6">
+     <widget class="QPushButton" name="PB_W">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₇₄
+W
+ᵗᵘⁿᵍˢᵗᵉⁿ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="2">
+     <widget class="QPushButton" name="PB_Ba">
+      <property name="styleSheet">
+       <string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string>
+      </property>
+      <property name="text">
+       <string>₅₆
+Ba
+ᵇᵃʳᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="9">
+     <widget class="QPushButton" name="PB_Os">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₇₆
+Os
+ᵒˢᵐᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="10">
+     <widget class="QPushButton" name="PB_Pt">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₇₈
+Pt
+ᵖˡᵃᵗᶦⁿᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="8">
+     <widget class="QPushButton" name="PB_Ir">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₇₇
+Ir
+ᶦʳᶦᵈᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="7">
+     <widget class="QPushButton" name="PB_Re">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₇₅
+Re
+ʳʰᵉⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="6">
+     <widget class="QPushButton" name="PB_Db">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₁₀₅
+Db
+ᵈᵘᵇⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="4">
+     <widget class="QPushButton" name="PB_Rf">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₁₀₄
+Rf
+ʳᵘᵗʰᵉʳᶠᵒʳᵈᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="8">
+     <widget class="QPushButton" name="PB_Bh">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₁₀₇
+Bh
+ᵇᵒʰʳᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="5">
+     <widget class="QPushButton" name="PB_Sg">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₁₀₆
+Sg
+ˢᵉᵃᵇᵒʳᵍᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="9">
+     <widget class="QPushButton" name="PB_Hs">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₁₀₈
+Hs
+ʰᵃˢˢᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="7">
+     <widget class="QPushButton" name="PB_Mt">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₁₀₉
+Mt
+ᵐᵉᶦᵗⁿᵉʳᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="11">
+     <widget class="QPushButton" name="PB_Ds">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₁₁₀
+Ds
+ᵈᵃʳᵐˢᵗᵃᵈᵗᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="13">
+     <widget class="QPushButton" name="PB_Cn">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₁₁₂
+Cn
+ᶜᵒᵖᵉʳⁿᶦᶜᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="14">
+     <widget class="QPushButton" name="PB_Nh">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+      </property>
+      <property name="text">
+       <string>₁₁₃
+Nh
+ⁿᶦʰᵒⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="15">
+     <widget class="QPushButton" name="PB_Fl">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+      </property>
+      <property name="text">
+       <string>₁₁₄
+Fl
+ᶠˡᵉʳᵒᵛᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="10">
+     <widget class="QPushButton" name="PB_Rg">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₁₁₁
+Rg
+ʳᵒᵉⁿᵗᵍᵉⁿᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="12">
+     <widget class="QPushButton" name="PB_Cn">
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₁₁₂
+Cn
+ᶜᵒᵖᵉʳⁿᶦᶜᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="18">
+     <widget class="QPushButton" name="PB_Og">
+      <property name="styleSheet">
+       <string>background-color: #ffe7eb; color: #880e4f; border: 1px solid #880e4f;</string>
+      </property>
+      <property name="text">
+       <string>₁₁₈
+Og
+ᵒᵍᵃⁿᵉˢˢᵒⁿ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="4">
+     <widget class="QPushButton" name="PB_Ce">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
+      <property name="text">
+       <string>₅₈
+Ce
+ᶜᵉʳᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="16">
+     <widget class="QPushButton" name="PB_Mc">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+      </property>
+      <property name="text">
+       <string>₁₁₅
+Mc
+ᵐᵒˢᶜᵒᵛᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="17">
+     <widget class="QPushButton" name="PB_Lv">
+      <property name="styleSheet">
+       <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+      </property>
+      <property name="text">
+       <string>₁₁₆
+Lv
+ˡᶦᵛᵉʳᵐᵒʳᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="8">
+     <widget class="QPushButton" name="PB_Sm">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
+      <property name="text">
+       <string>₆₂
+Sm
+ˢᵃᵐᵃʳᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="3">
      <widget class="QLabel" name="lanthStar">
       <property name="text">
        <string>*</string>
@@ -948,147 +1156,151 @@ Mc
       </property>
      </widget>
     </item>
-    
-    <item row="8" column="16">
-     <widget class="QPushButton" name="PB_Lv">
-      <property name="text">
-       <string>&#8321;&#8321;&#8326;
-Lv
-&#737;&#7590;&#7515;&#7497;&#691;&#7504;&#7506;&#691;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string></property></widget>
-    </item>
-    
-    <item row="9" column="7">
-     <widget class="QPushButton" name="PB_Sm">
-      <property name="text">
-       <string>&#8326;&#8322;
-Sm
-&#738;&#7491;&#7504;&#7491;&#691;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
-    </item>
-    
-    <item row="9" column="5">
-     <widget class="QPushButton" name="PB_Nd">
-      <property name="text">
-       <string>&#8326;&#8320;
-Nd
-&#8319;&#7497;&#7506;&#7496;&#696;&#7504;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
-    </item>
-    
-    <item row="9" column="6">
+    <item row="10" column="7">
      <widget class="QPushButton" name="PB_Pm">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
       <property name="text">
-       <string>&#8326;&#8321;
+       <string>₆₁
 Pm
-&#7510;&#691;&#7506;&#7504;&#7497;&#7511;&#688;&#7590;&#7512;&#7504;</string>
+ᵖʳᵒᵐᵉᵗʰᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="9" column="8">
+    <item row="10" column="6">
+     <widget class="QPushButton" name="PB_Nd">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
+      <property name="text">
+       <string>₆₀
+Nd
+ⁿᵉᵒᵈʸᵐᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="9">
      <widget class="QPushButton" name="PB_Eu">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
       <property name="text">
-       <string>&#8326;&#8323;
+       <string>₆₃
 Eu
-&#7497;&#7512;&#691;&#7506;&#7510;&#7590;&#7512;&#7504;</string>
+ᵉᵘʳᵒᵖᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="9" column="4">
+    <item row="10" column="5">
      <widget class="QPushButton" name="PB_Pr">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
       <property name="text">
-       <string>&#8325;&#8329;
+       <string>₅₉
 Pr
-&#7510;&#691;&#7491;&#738;&#7497;&#7506;&#7496;&#696;&#7504;&#7590;&#7512;&#7504;</string>
+ᵖʳᵃˢᵉᵒᵈʸᵐᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="9" column="13">
+    <item row="10" column="14">
      <widget class="QPushButton" name="PB_Er">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
       <property name="text">
-       <string>&#8326;&#8328;
+       <string>₆₈
 Er
-&#7497;&#691;&#7495;&#7590;&#7512;&#7504;</string>
+ᵉʳᵇᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="9" column="9">
-     <widget class="QPushButton" name="PB_Gd">
-      <property name="text">
-       <string>&#8326;&#8324;
-Gd
-&#7501;&#7491;&#7496;&#7506;&#737;&#7590;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
-    </item>
-    
-    <item row="9" column="10">
+    <item row="10" column="11">
      <widget class="QPushButton" name="PB_Tb">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
       <property name="text">
-       <string>&#8326;&#8325;
+       <string>₆₅
 Tb
-&#7511;&#7497;&#691;&#7495;&#7590;&#7512;&#7504;</string>
+ᵗᵉʳᵇᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="9" column="12">
-     <widget class="QPushButton" name="PB_Ho">
+    <item row="10" column="10">
+     <widget class="QPushButton" name="PB_Gd">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
       <property name="text">
-       <string>&#8326;&#8327;
-Ho
-&#688;&#7506;&#737;&#7504;&#7590;&#7512;&#7504;</string>
+       <string>₆₄
+Gd
+ᵍᵃᵈᵒˡᶦⁿᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="9" column="11">
+    <item row="10" column="12">
      <widget class="QPushButton" name="PB_Dy">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
       <property name="text">
-       <string>&#8326;&#8326;
+       <string>₆₆
 Dy
-&#7496;&#696;&#738;&#7510;&#691;&#7506;&#738;&#7590;&#7512;&#7504;</string>
+ᵈʸˢᵖʳᵒˢᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="9" column="14">
+    <item row="10" column="13">
+     <widget class="QPushButton" name="PB_Ho">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
+      <property name="text">
+       <string>₆₇
+Ho
+ʰᵒˡᵐᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="15">
      <widget class="QPushButton" name="PB_Tm">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
       <property name="text">
-       <string>&#8326;&#8329;
+       <string>₆₉
 Tm
-&#7511;&#688;&#7512;&#737;&#7590;&#7512;&#7504;</string>
+ᵗʰᵘˡᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="9" column="15">
+    <item row="10" column="16">
      <widget class="QPushButton" name="PB_Yb">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
+      </property>
       <property name="text">
-       <string>&#8327;&#8320;
+       <string>₇₀
 Yb
-&#696;&#7511;&#7511;&#7497;&#691;&#7495;&#7590;&#7512;&#7504;</string>
+ʸᵗᵗᵉʳᵇᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="9" column="16">
-     <widget class="QPushButton" name="PB_Lu">
+    <item row="11" column="5">
+     <widget class="QPushButton" name="PB_Pa">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
       <property name="text">
-       <string>&#8327;&#8321;
-Lu
-&#737;&#7512;&#7511;&#7497;&#7511;&#7590;&#7512;&#7504;</string>
+       <string>₉₁
+Pa
+ᵖʳᵒᵗᵃᶜᵗᶦⁿᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string></property></widget>
+     </widget>
     </item>
-    <item row="10" column="2">
+    <item row="11" column="3">
      <widget class="QLabel" name="actinStar">
       <property name="text">
        <string>**</string>
@@ -1098,169 +1310,233 @@ Lu
       </property>
      </widget>
     </item>
-    
-    <item row="10" column="4">
-     <widget class="QPushButton" name="PB_Pa">
-      <property name="text">
-       <string>&#8329;&#8321;
-Pa
-&#7510;&#691;&#7506;&#7511;&#7491;&#7580;&#7511;&#7590;&#8319;&#7590;&#7512;&#7504;</string>
+    <item row="10" column="17">
+     <widget class="QPushButton" name="PB_Lu">
+      <property name="styleSheet">
+       <string>background-color: #dff3ff; color: #144867; border: 1px solid #144867;</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
-    </item>
-    
-    <item row="10" column="3">
-     <widget class="QPushButton" name="PB_Th">
       <property name="text">
-       <string>&#8329;&#8320;
-Th
-&#7511;&#688;&#7506;&#691;&#7590;&#7512;&#7504;</string>
+       <string>₇₁
+Lu
+ˡᵘᵗᵉᵗᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="10" column="6">
+    <item row="11" column="7">
      <widget class="QPushButton" name="PB_Np">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
       <property name="text">
-       <string>&#8329;&#8323;
+       <string>₉₃
 Np
-&#8319;&#7497;&#7510;&#7511;&#7512;&#8319;&#7590;&#7512;&#7504;</string>
+ⁿᵉᵖᵗᵘⁿᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="10" column="5">
+    <item row="11" column="6">
      <widget class="QPushButton" name="PB_U">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
       <property name="text">
-       <string>&#8329;&#8322;
+       <string>₉₂
 U
-&#7512;&#691;&#7491;&#8319;&#7590;&#7512;&#7504;</string>
+ᵘʳᵃⁿᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="10" column="8">
+    <item row="11" column="4">
+     <widget class="QPushButton" name="PB_Th">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
+      <property name="text">
+       <string>₉₀
+Th
+ᵗʰᵒʳᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="9">
      <widget class="QPushButton" name="PB_Am">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
       <property name="text">
-       <string>&#8329;&#8325;
+       <string>₉₅
 Am
-&#7491;&#7504;&#7497;&#691;&#7590;&#7580;&#7590;&#7512;&#7504;</string>
+ᵃᵐᵉʳᶦᶜᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="10" column="9">
-     <widget class="QPushButton" name="PB_Cm">
-      <property name="text">
-       <string>&#8329;&#8326;
-Cm
-&#7580;&#7512;&#691;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
-    </item>
-    
-    <item row="10" column="7">
+    <item row="11" column="8">
      <widget class="QPushButton" name="PB_Pu">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
       <property name="text">
-       <string>&#8329;&#8324;
+       <string>₉₄
 Pu
-&#7510;&#737;&#7512;&#7511;&#7506;&#8319;&#7590;&#7512;&#7504;</string>
+ᵖˡᵘᵗᵒⁿᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="10" column="10">
+    <item row="11" column="10">
+     <widget class="QPushButton" name="PB_Cm">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
+      <property name="text">
+       <string>₉₆
+Cm
+ᶜᵘʳᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="11">
      <widget class="QPushButton" name="PB_Bk">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
       <property name="text">
-       <string>&#8329;&#8327;
+       <string>₉₇
 Bk
-&#7495;&#7497;&#691;&#7503;&#7497;&#737;&#7590;&#7512;&#7504;</string>
+ᵇᵉʳᵏᵉˡᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="10" column="11">
-     <widget class="QPushButton" name="PB_Cf">
-      <property name="text">
-       <string>&#8329;&#8328;
-Cf
-&#7580;&#7491;&#737;&#7590;&#7584;&#7506;&#691;&#8319;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
-    </item>
-    
-    <item row="10" column="13">
-     <widget class="QPushButton" name="PB_Fm">
-      <property name="text">
-       <string>&#8321;&#8320;&#8320;
-Fm
-&#7584;&#7497;&#691;&#7504;&#7590;&#7512;&#7504;</string>
-      </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
-    </item>
-    
-    <item row="10" column="12">
+    <item row="11" column="13">
      <widget class="QPushButton" name="PB_Es">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
       <property name="text">
-       <string>&#8329;&#8329;
+       <string>₉₉
 Es
-&#7497;&#7590;&#8319;&#738;&#7511;&#7497;&#7590;&#8319;&#7590;&#7512;&#7504;</string>
+ᵉᶦⁿˢᵗᵉᶦⁿᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="10" column="15">
+    <item row="11" column="16">
      <widget class="QPushButton" name="PB_Md">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
       <property name="text">
-       <string>&#8321;&#8320;&#8321;
+       <string>₁₀₁
 Md
-&#7504;&#7497;&#8319;&#7496;&#7497;&#737;&#7497;&#7515;&#7590;&#7512;&#7504;</string>
+ᵐᵉⁿᵈᵉˡᵉᵛᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="10" column="16">
-     <widget class="QPushButton" name="PB_No">
+    <item row="11" column="12">
+     <widget class="QPushButton" name="PB_Cf">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
       <property name="text">
-       <string>&#8321;&#8320;&#8322;
-No
-&#8319;&#7506;&#7495;&#7497;&#737;&#7590;&#7512;&#7504;</string>
+       <string>₉₈
+Cf
+ᶜᵃˡᶦᶠᵒʳⁿᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="10" column="14">
+    <item row="11" column="14">
+     <widget class="QPushButton" name="PB_Fm">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
+      <property name="text">
+       <string>₁₀₀
+Fm
+ᶠᵉʳᵐᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="15">
      <widget class="QPushButton" name="PB_Lr">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
       <property name="text">
-       <string>&#8321;&#8320;&#8323;
+       <string>₁₀₃
 Lr
-&#737;&#7491;&#695;&#691;&#7497;&#8319;&#7580;&#7590;&#7512;&#7504;</string>
+ˡᵃʷʳᵉⁿᶜᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="2" column="1">
+    <item row="11" column="17">
+     <widget class="QPushButton" name="PB_No">
+      <property name="styleSheet">
+       <string>background-color: #ffe6d4; color: #cc4a20; border: 1px solid #cc4a20;</string>
+      </property>
+      <property name="text">
+       <string>₁₀₂
+No
+ⁿᵒᵇᵉˡᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
      <widget class="QPushButton" name="PB_Be">
+      <property name="styleSheet">
+       <string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string>
+      </property>
       <property name="text">
-       <string>&#8324;
+       <string>₄
 Be
-&#7495;&#7497;&#691;&#696;&#737;&#737;&#7590;&#7512;&#7504;</string>
+ᵇᵉʳʸˡˡᶦᵘᵐ</string>
       </property>
-     <property name="styleSheet"><string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string></property></widget>
+     </widget>
     </item>
-    
-    <item row="5" column="4">
+    <item row="6" column="5">
      <widget class="QPushButton" name="PB_V">
-      <property name="text">
-       <string>&#8322;&#8323;
-V
-&#7515;&#7491;&#8319;&#7491;&#7496;&#7590;&#7512;&#7504;</string>
+      <property name="font">
+       <font>
+        <family>Montserrat,sans-serif</family>
+        <pointsize>-1</pointsize>
+       </font>
       </property>
-     <property name="styleSheet"><string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string></property></widget>
+      <property name="styleSheet">
+       <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+      </property>
+      <property name="text">
+       <string>₂₃
+V
+ᵛᵃⁿᵃᵈᶦᵘᵐ</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="19">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="6" column="0">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
  </widget>
- <resources />
- <connections />
+ <resources/>
+ <connections/>
 </ui>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FloatingWidget</class>
+ <widget class="QWidget" name="FloatingWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>200</width>
+    <height>150</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #f0f0f0; 
+border: 1px solid #aaaaaa;
+border-radius: 8px;
+padding: 10px;</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="symbolLabel">
+     <property name="styleSheet">
+      <string notr="true">font-size: 36px;
+font-weight: bold;
+text-align: center;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="nameLabel">
+     <property name="styleSheet">
+      <string notr="true">font-size: 16px;
+text-align: center;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="weightLabel">
+     <property name="styleSheet">
+      <string notr="true">font-size: 14px;
+text-align: center;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
