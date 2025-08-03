@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FloatingWidget</class>
- <widget class="QWidget" name="FloatingWidget">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,10 +10,16 @@
     <height>150</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>200</width>
+    <height>150</height>
+   </size>
+  </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #f0f0f0; 
-border: 1px solid #aaaaaa;
-border-radius: 8px;
+   <string notr="true">background-color: #f0f0f0;
+border: 2px solid #4CAF50;
+border-radius: 10px;
 padding: 10px;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -24,6 +30,9 @@ padding: 10px;</string>
 font-weight: bold;
 text-align: center;</string>
      </property>
+     <property name="text">
+      <string>H</string>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -32,8 +41,11 @@ text-align: center;</string>
    <item>
     <widget class="QLabel" name="nameLabel">
      <property name="styleSheet">
-      <string notr="true">font-size: 16px;
+      <string notr="true">font-size: 18px;
 text-align: center;</string>
+     </property>
+     <property name="text">
+      <string>Hydrogen</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -43,8 +55,11 @@ text-align: center;</string>
    <item>
     <widget class="QLabel" name="weightLabel">
      <property name="styleSheet">
-      <string notr="true">font-size: 14px;
+      <string notr="true">font-size: 16px;
 text-align: center;</string>
+     </property>
+     <property name="text">
+      <string>1.008</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

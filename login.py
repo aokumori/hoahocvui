@@ -191,13 +191,16 @@ class HoverEffect(QObject):
         self.button.installEventFilter(self)
 
         # Create floating widget from .ui file
-        self.float_widget = QWidget(self.button.parent())
+        self.float_widget = QWidget()
         uic.loadUi("floating_widget.ui", self.float_widget)
         
         # Configure widget properties
-        self.float_widget.setWindowFlags(Qt.WindowType.FramelessWindowHint | 
-                                        Qt.WindowType.ToolTip)
-        self.float_widget.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
+        self.float_widget.setWindowFlags(
+            Qt.WindowType.FramelessWindowHint | 
+            Qt.WindowType.WindowStaysOnTopHint
+        )
+        self.float_widget.setAttribute(Qt.WidgetAttribute.WA_ShowWithoutActivating)
+        # self.float_widget.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)  # Optional: comment out for testing
         self.float_widget.setVisible(False)
         
         # Get references to labels
@@ -241,60 +244,65 @@ class HoverEffect(QObject):
 
     def show_floating_widget(self):
         # Set element data from button properties
-        self.symbolLabel.setText(self.button.property("symbol"))
-        self.nameLabel.setText(self.button.property("name"))
-        self.weightLabel.setText(self.button.property("weight"))
+        symbol = self.button.property("symbol")
+        name = self.button.property("name")
+        weight = self.button.property("weight")
         
-        # Calculate position
-        button_pos = self.button.mapToGlobal(QPoint(0, 0))
-        bw = self.button.width()
-        bh = self.button.height()
-        fw = self.float_widget.width()
-        fh = self.float_widget.height()
-        
-        # Center above the button
-        fx = int(button_pos.x() + (bw - fw) / 2)
-        fy = int(button_pos.y() - fh - 10)  # 10px above
-        
-        # Set initial position slightly below for animation
-        self.float_widget.setGeometry(fx, fy + 20, fw, fh)
-        self.float_widget.setVisible(True)
+        if symbol and name and weight:
+            self.symbolLabel.setText(symbol)
+            self.nameLabel.setText(name)
+            self.weightLabel.setText(weight)
+            
+            # Calculate position
+            button_pos = self.button.mapToGlobal(QPoint(0, 0))
+            bw = self.button.width()
+            bh = self.button.height()
+            fw = self.float_widget.width()
+            fh = self.float_widget.height()
+            
+            # Center above the button
+            fx = int(button_pos.x() + (bw - fw) / 2)
+            fy = int(button_pos.y() - fh - 10)  # 10px above
+            
+            # Set initial position slightly below for animation
+            print(f"Showing floating widget at: {fx}, {fy}, {fw}, {fh}")
+            self.float_widget.setGeometry(fx, fy + 20, fw, fh)
+            self.float_widget.show()
+            self.float_widget.raise_()
 
-        # Animate floating widget
-        self.float_anim.stop()
-        self.float_anim.setDuration(300)
-        self.float_anim.setStartValue(QRect(fx, fy + 20, fw, fh))
-        self.float_anim.setEndValue(QRect(fx, fy, fw, fh))
-        self.float_anim.start()
+            # Animate floating widget
+            self.float_anim.stop()
+            self.float_anim.setDuration(300)
+            self.float_anim.setStartValue(QRect(fx, fy + 20, fw, fh))
+            self.float_anim.setEndValue(QRect(fx, fy, fw, fh))
+            self.float_anim.start()
 
     def hide_floating_widget(self):
         self.float_widget.setVisible(False)
 
-
-
-
-
-
+# Import element data
 from element_data import ELEMENT_DATA
 
-# Then in PTable class:
 class PTable(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("periodic_table.ui", self)
+
+        self.hover_effects = []
+
         for btn in self.findChildren(QPushButton):
             symbol = btn.text().strip()
+            # Example: Only set for element buttons
             if symbol in ELEMENT_DATA:
                 data = ELEMENT_DATA[symbol]
                 btn.setProperty("symbol", symbol)
                 btn.setProperty("name", data["name"])
                 btn.setProperty("weight", data["weight"])
-                HoverEffect(btn)
-
-                # You can loop over all your buttons too:
-                # for btn in self.findChildren(QPushButton):
-                #     HoverEnlarge(btn)
-
+            else:
+                btn.setProperty("symbol", "")
+                btn.setProperty("name", "")
+                btn.setProperty("weight", "")
+            self.hover_effects.append(HoverEffect(btn))
 
 app = QApplication(sys.argv)
 # r_login = LoginWindow()
