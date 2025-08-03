@@ -90,6 +90,7 @@ class LoginWindow(QMainWindow):
         if user_otp == otp:
             self.show_message("Thành công", "Đăng nhập thành công", QMessageBox.Icon.Information)
             r_main.show()
+            self.close()
         else:
             self.show_message("Thất bại", "Sai mã OTP!", QMessageBox.Icon.Warning)
 
@@ -158,9 +159,20 @@ class MainWindow(QMainWindow):
         super().__init__()
         uic.loadUi("main.ui", self)
 
+        self.table_pb.clicked.connect(self.periodic_table)
+    def periodic_table(self):
+        r_table.show()
+        self.close()
+class PTable(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("periodic_table.ui", self)
+
+
 app = QApplication(sys.argv)
 r_login = LoginWindow()
 r_main = MainWindow()
+r_table = PTable()
 
 r_login.show()
 sys.exit(app.exec())

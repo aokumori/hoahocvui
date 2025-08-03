@@ -29,7 +29,7 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="weather_pb">
+      <widget class="QPushButton" name="table_pb">
        <property name="styleSheet">
         <string notr="true">QPushButton {
 	font: 99 10pt &quot;Noto Serif JP ExtraLight&quot;;
