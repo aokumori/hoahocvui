@@ -1,3 +1,125 @@
+ELEMENT_INFO = {
+    "H":  {"weight": 1.008, "valence": ["I"]},
+    "He": {"weight": 4.0026, "valence": ["O"]},
+    "Li": {"weight": 6.94, "valence": ["I"]},
+    "Be": {"weight": 9.0122, "valence": ["II"]},
+    "B":  {"weight": 10.81, "valence": ["III"]},
+    "C":  {"weight": 12.011, "valence": ["IV", "II"]},
+    "N":  {"weight": 14.007, "valence": ["V", "IV", "III", "II", "I", "-III"]},
+    "O":  {"weight": 15.999, "valence": ["II", "-II"]},
+    "F":  {"weight": 18.998, "valence": ["I", "-I"]},
+    "Ne": {"weight": 20.180, "valence": ["O"]},
+    "Na": {"weight": 22.990, "valence": ["I"]},
+    "Mg": {"weight": 24.305, "valence": ["II"]},
+    "Al": {"weight": 26.982, "valence": ["III"]},
+    "Si": {"weight": 28.085, "valence": ["IV", "II"]},
+    "P":  {"weight": 30.974, "valence": ["V", "III", "-III"]},
+    "S":  {"weight": 32.06, "valence": ["VI", "IV", "II", "-II"]},
+    "Cl": {"weight": 35.45, "valence": ["VII", "V", "III", "I", "-I"]},
+    "Ar": {"weight": 39.948, "valence": ["O"]},
+    "K":  {"weight": 39.098, "valence": ["I"]},
+    "Ca": {"weight": 40.078, "valence": ["II"]},
+    "Sc": {"weight": 44.956, "valence": ["III"]},
+    "Ti": {"weight": 47.867, "valence": ["IV", "III", "II"]},
+    "V":  {"weight": 50.942, "valence": ["V", "IV", "III", "II"]},
+    "Cr": {"weight": 51.996, "valence": ["VI", "III", "II"]},
+    "Mn": {"weight": 54.938, "valence": ["VII", "VI", "IV", "III", "II"]},
+    "Fe": {"weight": 55.845, "valence": ["III", "II"]},
+    "Co": {"weight": 58.933, "valence": ["III", "II"]},
+    "Ni": {"weight": 58.693, "valence": ["III", "II"]},
+    "Cu": {"weight": 63.546, "valence": ["II", "I"]},
+    "Zn": {"weight": 65.38,  "valence": ["II"]},
+    "Ga": {"weight": 69.723, "valence": ["III"]},
+    "Ge": {"weight": 72.63,  "valence": ["IV", "II"]},
+    "As": {"weight": 74.922, "valence": ["V", "III", "-III"]},
+    "Se": {"weight": 78.971, "valence": ["VI", "IV", "-II"]},
+    "Br": {"weight": 79.904, "valence": ["VII", "V", "III", "I", "-I"]},
+    "Kr": {"weight": 83.798, "valence": ["II"]},
+    "Rb": {"weight": 85.468, "valence": ["I"]},
+    "Sr": {"weight": 87.62,  "valence": ["II"]},
+    "Y":  {"weight": 88.906, "valence": ["III"]},
+    "Zr": {"weight": 91.224, "valence": ["IV"]},
+    "Nb": {"weight": 92.906, "valence": ["V", "III"]},
+    "Mo": {"weight": 95.95,  "valence": ["VI", "V", "IV", "III", "II"]},
+    "Tc": {"weight": 98,     "valence": ["VII", "VI", "V", "IV", "III", "II"]},
+    "Ru": {"weight": 101.07, "valence": ["VIII", "VI", "IV", "III", "II"]},
+    "Rh": {"weight": 102.91, "valence": ["III", "II"]},
+    "Pd": {"weight": 106.42, "valence": ["IV", "II"]},
+    "Ag": {"weight": 107.87, "valence": ["I", "II"]},
+    "Cd": {"weight": 112.41, "valence": ["II"]},
+    "In": {"weight": 114.82, "valence": ["III", "I"]},
+    "Sn": {"weight": 118.71, "valence": ["IV", "II"]},
+    "Sb": {"weight": 121.76, "valence": ["V", "III", "-III"]},
+    "Te": {"weight": 127.60, "valence": ["VI", "IV", "-II"]},
+    "I":  {"weight": 126.90, "valence": ["VII", "V", "III", "I", "-I"]},
+    "Xe": {"weight": 131.29, "valence": ["VIII", "VI", "IV", "II"]},
+    "Cs": {"weight": 132.91, "valence": ["I"]},
+    "Ba": {"weight": 137.33, "valence": ["II"]},
+    "La": {"weight": 138.91, "valence": ["III"]},
+    "Ce": {"weight": 140.12, "valence": ["IV", "III"]},
+    "Pr": {"weight": 140.91, "valence": ["IV", "III"]},
+    "Nd": {"weight": 144.24, "valence": ["III"]},
+    "Pm": {"weight": 145,    "valence": ["III"]},
+    "Sm": {"weight": 150.36, "valence": ["III", "II"]},
+    "Eu": {"weight": 151.96, "valence": ["III", "II"]},
+    "Gd": {"weight": 157.25, "valence": ["III"]},
+    "Tb": {"weight": 158.93, "valence": ["IV", "III"]},
+    "Dy": {"weight": 162.50, "valence": ["III"]},
+    "Ho": {"weight": 164.93, "valence": ["III"]},
+    "Er": {"weight": 167.26, "valence": ["III"]},
+    "Tm": {"weight": 168.93, "valence": ["III", "II"]},
+    "Yb": {"weight": 173.05, "valence": ["III", "II"]},
+    "Lu": {"weight": 174.97, "valence": ["III"]},
+    "Hf": {"weight": 178.49, "valence": ["IV"]},
+    "Ta": {"weight": 180.95, "valence": ["V", "IV", "III"]},
+    "W":  {"weight": 183.84, "valence": ["VI", "V", "IV", "III", "II"]},
+    "Re": {"weight": 186.21, "valence": ["VII", "VI", "V", "IV", "III", "II"]},
+    "Os": {"weight": 190.23, "valence": ["VIII", "VI", "IV", "III", "II"]},
+    "Ir": {"weight": 192.22, "valence": ["VI", "IV", "III", "II"]},
+    "Pt": {"weight": 195.08, "valence": ["IV", "II"]},
+    "Au": {"weight": 196.97, "valence": ["III", "I"]},
+    "Hg": {"weight": 200.59, "valence": ["II", "I"]},
+    "Tl": {"weight": 204.38, "valence": ["III", "I"]},
+    "Pb": {"weight": 207.2,  "valence": ["IV", "II"]},
+    "Bi": {"weight": 208.98, "valence": ["V", "III"]},
+    "Po": {"weight": 209,    "valence": ["VI", "IV", "II"]},
+    "At": {"weight": 210,    "valence": ["VII", "V", "III", "I", "-I"]},
+    "Rn": {"weight": 222,    "valence": ["O"]},
+    "Fr": {"weight": 223,    "valence": ["I"]},
+    "Ra": {"weight": 226,    "valence": ["II"]},
+    "Ac": {"weight": 227,    "valence": ["III"]},
+    "Th": {"weight": 232.04, "valence": ["IV"]},
+    "Pa": {"weight": 231.04, "valence": ["V", "IV", "III"]},
+    "U":  {"weight": 238.03, "valence": ["VI", "V", "IV", "III"]},
+    "Np": {"weight": 237,    "valence": ["VI", "V", "IV", "III"]},
+    "Pu": {"weight": 244,    "valence": ["VI", "V", "IV", "III"]},
+    "Am": {"weight": 243,    "valence": ["VI", "V", "III"]},
+    "Cm": {"weight": 247,    "valence": ["III"]},
+    "Bk": {"weight": 247,    "valence": ["III", "IV"]},
+    "Cf": {"weight": 251,    "valence": ["III"]},
+    "Es": {"weight": 252,    "valence": ["III"]},
+    "Fm": {"weight": 257,    "valence": ["III"]},
+    "Md": {"weight": 258,    "valence": ["III"]},
+    "No": {"weight": 259,    "valence": ["II"]},
+    "Lr": {"weight": 262,    "valence": ["III"]},
+    "Rf": {"weight": 267,    "valence": ["IV"]},
+    "Db": {"weight": 270,    "valence": ["V"]},
+    "Sg": {"weight": 271,    "valence": ["VI"]},
+    "Bh": {"weight": 270,    "valence": ["VII"]},
+    "Hs": {"weight": 277,    "valence": ["VIII"]},
+    "Mt": {"weight": 276,    "valence": ["O"]},
+    "Ds": {"weight": 281,    "valence": ["O"]},
+    "Rg": {"weight": 282,    "valence": ["O"]},
+    "Cn": {"weight": 285,    "valence": ["II"]},
+    "Nh": {"weight": 286,    "valence": ["V", "III"]},
+    "Fl": {"weight": 289,    "valence": ["IV", "II"]},
+    "Mc": {"weight": 290,    "valence": ["III", "I"]},
+    "Lv": {"weight": 293,    "valence": ["IV", "II"]},
+    "Ts": {"weight": 294,    "valence": ["VII", "V", "III", "I", "-I"]},
+    "Og": {"weight": 294,    "valence": ["II"]}
+}
+
+
 import sys
 import os
 import random
@@ -7,12 +129,20 @@ from email.mime.text import MIMEText
 
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QMessageBox, QDialogButtonBox,
-    QLineEdit, QLabel, QWidget, QPushButton, QVBoxLayout
+    QLineEdit, QLabel, QWidget, QPushButton, QVBoxLayout,
 )
 from PyQt6.QtCore import QPropertyAnimation, QRect, QEasingCurve, QObject, QEvent, QPoint, Qt
 from PyQt6.QtGui import QMovie
-from PyQt6 import uic
+from PyQt6 import uic, QtWidgets
 
+from PyQt6.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QPushButton,
+    QVBoxLayout, QLabel,QHBoxLayout
+)
+from PyQt6.QtCore import (
+    QObject, QEvent, QPropertyAnimation, QRect,
+    QEasingCurve, Qt
+)
 
 global hovering_label, hovering_name, hovering_weight
 
@@ -167,41 +297,109 @@ class MainWindow(QMainWindow):
         uic.loadUi("main.ui", self)
 
         self.table_pb.clicked.connect(self.periodic_table)
+        self.formula_pb.clicked.connect(self.formula_table)
+        self.formula1.clicked.connect(self.formula1_form)
+
+    def formula1_form(self):
+        self.new_window = QtWidgets.QWidget()     
+        uic.loadUi("formula1.ui", self.new_window)
+        self.new_window.show()
+
     def periodic_table(self):
         r_table.show()
         self.close()
-# class PTable(QMainWindow):
-#     def __init__(self):
-#         super().__init__()
-#         uic.loadUi("periodic_table.ui", self)
+    def formula_table(self):
+        self.Formulawidget.raise_()   
+        self.Formulawidget.show() 
 
 
-import sys
-import os
-from PyQt6.QtWidgets import (
-    QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
-    QLabel, QPushButton
-)
-from PyQt6.QtCore import QPropertyAnimation, QRect, QEasingCurve, QObject, QEvent, Qt, QPoint
-from PyQt6.QtGui import QMovie
-from PyQt6 import uic
 
+
+# ------------------------------------------------------------------------
+
+
+
+
+
+
+class FloatingWidget(QWidget):
+    def __init__(self, parent=None, style=""):
+        super().__init__(parent)
+        self.setFixedSize(400, 200)
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
+        self.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
+        self.setStyleSheet(style)
+
+        outer = QHBoxLayout(self)
+        outer.setContentsMargins(20, 20, 20, 20)
+
+        self.squareLabel = QLabel(self)
+        self.squareLabel.setFixedSize(150, 150)
+        self.squareLabel.setStyleSheet(style)
+        self.squareLabel.setScaledContents(True)  # Fit GIF in square
+
+        self.movie = None  # Store QMovie instance
+
+        info = QVBoxLayout()
+        self.symbolLabel = QLabel("", self)
+        self.symbolLabel.setStyleSheet("font-size: 36px; font-weight: bold;")
+        self.symbolLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.nameLabel = QLabel("", self)
+        self.nameLabel.setStyleSheet("font-size: 18px;")
+        self.nameLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.weightLabel = QLabel("", self)
+        self.weightLabel.setStyleSheet("font-size: 12px;")
+        self.weightLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        info.addWidget(self.symbolLabel)
+        info.addWidget(self.nameLabel)
+        info.addWidget(self.weightLabel)
+
+        outer.addWidget(self.squareLabel)
+        outer.addLayout(info)
+        self.setLayout(outer)
+
+    def update_gif(self, atomic_number):
+        gif_path = os.path.join("elementgif", f"element_{atomic_number}.gif")
+
+        if os.path.exists(gif_path):
+            print(f"[DEBUG] Loading GIF: {gif_path}")  # ✅ Add this line for confirmation
+
+            self.squareLabel.setStyleSheet(self.styleSheet())  # Retain button background style
+
+            if hasattr(self, 'movie') and self.movie:
+                self.movie.stop()
+
+            self.movie = QMovie(gif_path)
+            self.movie.setCacheMode(QMovie.CacheMode.CacheAll)
+            self.movie.setSpeed(100)
+            self.movie.setScaledSize(self.squareLabel.size())
+
+            self.squareLabel.setMovie(self.movie)
+            self.movie.start()
+        else:
+            print(f"[WARNING] GIF not found: {gif_path}")  # ⚠️ If path is wrong or missing
+            self.squareLabel.clear()
+
+
+# ----- HOVER EFFECT -----
 class HoverEffect(QObject):
     def __init__(self, button):
         super().__init__(button)
         self.button = button
-        
+
         self.original_geometry = button.geometry()
         self.anim = QPropertyAnimation(button, b"geometry")
         self.anim.setEasingCurve(QEasingCurve.Type.OutQuad)
         self.button.installEventFilter(self)
 
-        # 👉 Create the floating widget with fixed size
-        self.float_widget = FloatingWidget(self.button.parent(), self.button.styleSheet())
-        self.float_widget.setFixedSize(400, 200)  # Fixed size!
-        self.float_widget.setStyleSheet(
+        self.float_widget = FloatingWidget(
+            self.button.parent(),
             self.button.styleSheet()
         )
+        self.float_widget.setFixedSize(400, 200)
         self.float_widget.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self.float_widget.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
         self.float_widget.setVisible(False)
@@ -213,46 +411,78 @@ class HoverEffect(QObject):
         if obj == self.button:
             if event.type() == QEvent.Type.Enter:
                 self.enlarge()
-                self.show_floating_widget()
-                
             elif event.type() == QEvent.Type.Leave:
                 self.shrink()
                 self.hide_floating_widget()
+            elif event.type() == QEvent.Type.MouseButtonPress:
+                self._update_content()
+                self.show_floating_widget()
         return super().eventFilter(obj, event)
 
     def enlarge(self):
         self.original_geometry = self.button.geometry()
-        geom = self.original_geometry
         new_geom = QRect(
-            geom.x() - 5, geom.y() - 5, geom.width() + 10, geom.height() + 10
+            self.original_geometry.x() - 5,
+            self.original_geometry.y() - 5,
+            self.original_geometry.width() + 10,
+            self.original_geometry.height() + 10
         )
         self.anim.stop()
         self.anim.setDuration(150)
-        self.anim.setStartValue(geom)
+        self.anim.setStartValue(self.original_geometry)
         self.anim.setEndValue(new_geom)
         self.anim.start()
 
     def shrink(self):
-        geom = self.button.geometry()
         self.anim.stop()
         self.anim.setDuration(150)
-        self.anim.setStartValue(geom)
         self.anim.setEndValue(self.original_geometry)
         self.anim.start()
 
+    def _update_content(self):
+        text = self.button.text()
+        lines = text.split('\n')
+        if len(lines) >= 3:
+            number_sub = lines[0].strip()
+            symbol = lines[1].strip()
+            fullname_sub = lines[2].strip()
+
+            number_normal = self._convert_subscript(number_sub)
+            fullname_normal = self._convert_superscript(fullname_sub).capitalize()
+
+            element_data = ELEMENT_INFO.get(symbol, {})
+            weight = element_data.get("weight", "?")
+            valences = element_data.get("valence", [])
+            valence_str = ", ".join(valences) if valences else "—"
+
+            self.float_widget.symbolLabel.setText(symbol)
+            self.float_widget.nameLabel.setText(fullname_normal)
+            self.float_widget.weightLabel.setText(
+                f"Z = {number_normal}, M = {weight}, HT = {valence_str}"
+            )
+            self.float_widget.squareLabel.setStyleSheet(self.button.styleSheet())
+
+            try:
+                atomic_number = int(number_normal)
+                self.float_widget.update_gif(atomic_number)
+            except ValueError:
+                pass
+
+    def _convert_subscript(self, text):
+        return text.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789"))
+
+    def _convert_superscript(self, text):
+        return text.translate(str.maketrans(
+            "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻ",
+            "0123456789+-=()nabcdefghijklmnoprstuvwxyz"
+        ))
+
     def show_floating_widget(self):
-    # 👉 Fill labels dynamically when showing
-
-        bw = self.button.width()
-        bh = self.button.height()
-        fw = self.float_widget.width()
-        fh = self.float_widget.height()
-
-        bx = self.button.x()
-        by = self.button.y()
-
-        fx = int(bx + (bw - fw) / 2)
-        fy = int(by - fh - 10)
+        bw, bh = self.button.width(), self.button.height()
+        fw, fh = self.float_widget.width(), self.float_widget.height()
+        global_pos = self.button.mapToGlobal(self.button.rect().center())
+        fx = int(global_pos.x() - fw / 2)
+        fy = int(global_pos.y() - bh / 2 - fh - 10)
 
         self.float_widget.setGeometry(fx, fy + 20, fw, fh)
         self.float_widget.setVisible(True)
@@ -262,55 +492,21 @@ class HoverEffect(QObject):
         self.float_anim.setStartValue(QRect(fx, fy + 20, fw, fh))
         self.float_anim.setEndValue(QRect(fx, fy, fw, fh))
         self.float_anim.start()
-       
-
-
 
     def hide_floating_widget(self):
         self.float_widget.setVisible(False)
 
-class FloatingWidget(QWidget):
-    def __init__(self, parent=None, style=""):
-        super().__init__(parent)
-        self.setFixedSize(400, 200)
-        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
-        self.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
-        self.setStyleSheet(style)  # Use the passed style string
 
-        layout = QVBoxLayout(self)
-        self.symbolLabel = QLabel(hovering_label, self)
-        self.symbolLabel.setStyleSheet("font-size: 36px; font-weight: bold;")
-        self.symbolLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.nameLabel = QLabel(hovering_name, self)
-        self.nameLabel.setStyleSheet("font-size: 18px;")
-        self.nameLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.weightLabel = QLabel(hovering_weight, self)
-        self.weightLabel.setStyleSheet("font-size: 16px;")
-        self.weightLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        layout.addWidget(self.symbolLabel)
-        layout.addWidget(self.nameLabel)
-        layout.addWidget(self.weightLabel)
-        self.setLayout(layout)
-
-    def update_content(self, symbol, name, weight):
-        self.symbolLabel.setText(symbol)
-        self.nameLabel.setText(name)
-        self.weightLabel.setText(weight)
-
+# --- PERIODIC TABLE ---
 class PTable(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("periodic_table.ui", self)
-
         for btn in self.findChildren(QPushButton):
             HoverEffect(btn)
-
-        # You can loop over all your buttons too:
-        # for btn in self.findChildren(QPushButton):
-        #     HoverEnlarge(btn)
 
 
 app = QApplication(sys.argv)
