@@ -141,8 +141,10 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import (
     QObject, QEvent, QPropertyAnimation, QRect,
-    QEasingCurve, Qt
+    QEasingCurve, Qt, QTimer
 )
+
+
 
 global hovering_label, hovering_name, hovering_weight
 
@@ -301,16 +303,109 @@ class MainWindow(QMainWindow):
         self.formula1.clicked.connect(self.formula1_form)
 
     def formula1_form(self):
-        self.new_window = QtWidgets.QWidget()     
+        self.new_window = QtWidgets.QWidget()
         uic.loadUi("formula1.ui", self.new_window)
+
+        for label in self.new_window.findChildren(QLabel):
+            label.installEventFilter(self)
+            label._original_geometry = label.geometry()
+            label._anim = QPropertyAnimation(label, b"geometry")
+            label._anim.setDuration(150)
+
         self.new_window.show()
+
+    def eventFilter(self, obj, event):
+        if isinstance(obj, QLabel):
+            text = obj.text().strip()
+
+            # Skip these cases
+            if text.startswith("I") or text in ("=", "×", "/"):
+                return super().eventFilter(obj, event)
+
+            if event.type() == QEvent.Type.Enter:
+                self.show_floating_label(obj, text)
+                self.enlarge_label(obj)
+
+            elif event.type() == QEvent.Type.Leave:
+                if hasattr(self, "_float_label") and self._float_label:
+                    self._float_label.deleteLater()
+                    self._float_label = None
+                self.shrink_label(obj)
+
+        return super().eventFilter(obj, event)
+
+    def show_floating_label(self, target_label, original_text):
+        text_map = {
+            "n": "n <sub>là kí hiệu số mol.</sub>",
+            "m": "m <sub>là kí hiệu khối lượng (gam).</sub>",
+            "V": "V <sub>là kí hiệu thể tích (lít).</sub>",
+            "24.79": "24.79 <sub>là số lít khí có trong 1 mol<br>chất khí ở đkc(25°C và 1 bar)</sub>",
+            "Cᴹ": "Cᴹ <sub>là kí hiệu nồng độ mol (Mol/lít)</sub>",
+            "Vᵈᵈ": "Vᵈᵈ <sub>là kí hiệu thể tích dung dịch (lít)</sub>",
+            "M": "M <sub>là kí hiệu khối lượng mol (gam/mol)</sub>",
+            "D": "D <sub>là kí hiệu khối lượng riêng (gam/ml)</sub>",
+            "C%": "C% <sub>là kí hiệu nồng độ phần trăm <br>(Số g chất tan có trong 100g dung dịch)</sub>",
+            "mᶜᵗ": "mᶜᵗ <sub>là kí hiệu khối lượng chất tan trong dd (g)</sub>",
+            "mᵈᵈ": "mᵈᵈ <sub>là kí hiệu khối lượng dung dịch (g)</sub>",
+            "nᶜᵗ": "nᶜᵗ <sub>là kí hiệu số mol chất tan trong dd</sub>",
+        }
+        display_text = text_map.get(original_text.strip(), original_text.strip())
+
+        if hasattr(self, "_float_label") and self._float_label:
+            self._float_label.deleteLater()
+
+        self._float_label = QLabel(display_text, target_label.parent())
+        self._float_label.setStyleSheet("""
+            QLabel {
+                background-color: #f7ebeb;
+                border-radius: 6px;
+                padding: 4px 8px;
+                font-weight: bold;
+                font-size: 13px;
+                font-family: Montserrat, sans-serif;
+            }
+        """)
+        self._float_label.adjustSize()
+
+        target_geom = target_label.geometry()
+        start_y = target_geom.top() - self._float_label.height() // 2
+        end_y = target_geom.top() - self._float_label.height() - 8
+
+        self._float_label.move(target_geom.left(), start_y)
+        self._float_label.show()
+
+        self._float_anim = QPropertyAnimation(self._float_label, b"pos")
+        self._float_anim.setDuration(250)
+        self._float_anim.setEasingCurve(QEasingCurve.Type.OutQuad)
+        self._float_anim.setStartValue(self._float_label.pos())
+        self._float_anim.setEndValue(self._float_label.pos() + QPoint(0, end_y - start_y))
+        self._float_anim.start()
+
+
+    def enlarge_label(self, label):
+        label._original_geometry = label.geometry()
+        new_geom = label._original_geometry.translated(0, -2)  # Slight offset upward
+        label._anim.stop()
+        label._anim.setStartValue(label._original_geometry)
+        label._anim.setEndValue(new_geom)
+        label._anim.start()
+
+    def shrink_label(self, label):
+        if hasattr(label, "_original_geometry"):
+            label._anim.stop()
+            label._anim.setStartValue(label.geometry())
+            label._anim.setEndValue(label._original_geometry)
+            label._anim.start()
 
     def periodic_table(self):
         r_table.show()
-        self.close()
+
+
     def formula_table(self):
-        self.Formulawidget.raise_()   
-        self.Formulawidget.show() 
+        self.Formulawidget.raise_()
+        self.Formulawidget.show()
+
+
 
 
 
