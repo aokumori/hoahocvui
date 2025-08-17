@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>447</width>
+    <width>616</width>
     <height>556</height>
    </rect>
   </property>
   <property name="styleSheet">
-   <string notr="true">font-family:MS UI Gothic;
+   <string notr="true">font-family:Montserrat;
 color:#751330;
 background-color:#f7ebeb;
-font-size:12px;
+font-size:13px;
 font-weight: bold;
 
 border: 1px solid #751330;
@@ -50,7 +50,7 @@ font-size:10px;
 border: 0px</string>
      </property>
      <property name="text">
-      <string>II. Công thức tính số mol</string>
+      <string>I. Công thức tính số mol</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

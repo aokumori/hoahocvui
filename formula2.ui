@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MindMapWindow</class>
+ <widget class="QMainWindow" name="MindMapWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1199</width>
+    <height>682</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mind Map</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">font-family: Courier, sans-serif;
+font-size: 14px;
+background-color:transparent</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: #f7ebeb;</string>
+   </property>
+   <widget class="QLabel" name="lblOxideBase">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>120</y>
+      <width>160</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #b7e3e2; border-radius:8px; font: bold 14pt &quot;Montserrat&quot;;color:#3d7574;border: 1px solid #3d7574;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>OXIDE BASE</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblOxideAcid">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>120</y>
+      <width>160</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #b7e3e2; border-radius:8px; font: bold 14pt &quot;Montserrat&quot;;color:#3d7574;border: 1px solid #3d7574;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>OXIDE ACID</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblBase">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>460</y>
+      <width>160</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #b7e3e2; border-radius:8px; font: bold 14pt &quot;Montserrat&quot;;color:#4c8c8b;border: 1px solid #4c8c8b;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>BASE</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblAcid">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>460</y>
+      <width>160</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #b7e3e2; border-radius:8px; font: bold 14pt &quot;Montserrat&quot;;color:#3d7574;border: 1px solid #3d7574;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>ACID</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblMuoi">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>280</y>
+      <width>180</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #b7e3e2; border-radius:8px; font: bold 14pt &quot;Montserrat&quot;;color:#3d7574;border: 1px solid #3d7574;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>MUỐI</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="arrow_top_left_to_center">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>190</y>
+      <width>151</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent</string>
+    </property>
+    <property name="pixmap">
+     <pixmap>arrow3.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="arrow_top_right_to_center">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>190</y>
+      <width>141</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent</string>
+    </property>
+    <property name="pixmap">
+     <pixmap>arrow2.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="arrow_bottom_left_to_center">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>340</y>
+      <width>151</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent</string>
+    </property>
+    <property name="pixmap">
+     <pixmap>arrow4.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="arrow_bottom_right_to_center">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>360</y>
+      <width>161</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent</string>
+    </property>
+    <property name="pixmap">
+     <pixmap>arrow1.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusAcidTL">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>200</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Axit</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusBaseTR">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>170</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Base</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusBaseBL">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>390</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Muối</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusKimloai">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>400</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Kim loại</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusAcidTL_2">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>170</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier,sans-serif</family>
+      <pointsize>-1</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Oxit Axit</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusBaseTR_2">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>200</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Oxit Base</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusAcidTL_3">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>430</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Axit</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusAcidTL_4">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>470</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier,sans-serif</family>
+      <pointsize>-1</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Oxit Axit</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="arrow_top_right_to_center_2">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>340</y>
+      <width>151</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent</string>
+    </property>
+    <property name="pixmap">
+     <pixmap>arrow2.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusBaseTR_3">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>370</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Base</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusBaseTR_4">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>440</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Oxit Base</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusBaseTR_5">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>480</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Base</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusBaseBL_2">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>520</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Muối</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusAcidTL_5">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>370</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ Axit</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="arrow_top_right_to_center_3">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>200</y>
+      <width>41</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent</string>
+    </property>
+    <property name="pixmap">
+     <pixmap>arrow5.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="arrow_top_right_to_center_4">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>190</y>
+      <width>41</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent</string>
+    </property>
+    <property name="pixmap">
+     <pixmap>arrow6.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="arrow_top_right_to_center_5">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>190</y>
+      <width>41</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent</string>
+    </property>
+    <property name="pixmap">
+     <pixmap>arrow5.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusBaseTR_6">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>320</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ H2O</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusBaseTR_7">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>310</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>+ H2O</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblPlusBaseTR_8">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>290</y>
+      <width>51</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f7ebeb;
+color:#751330;
+border: 1px solid #751330;
+border-radius: 7px;</string>
+    </property>
+    <property name="text">
+     <string>Nhiệt 
+phân 
+hủy</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="arrow_top_left_to_center_2">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>360</y>
+      <width>161</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:transparent</string>
+    </property>
+    <property name="pixmap">
+     <pixmap>arrow3.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>arrow_top_left_to_center_2</zorder>
+   <zorder>lblOxideBase</zorder>
+   <zorder>lblOxideAcid</zorder>
+   <zorder>lblBase</zorder>
+   <zorder>lblAcid</zorder>
+   <zorder>lblMuoi</zorder>
+   <zorder>arrow_top_left_to_center</zorder>
+   <zorder>arrow_top_right_to_center</zorder>
+   <zorder>arrow_bottom_left_to_center</zorder>
+   <zorder>arrow_bottom_right_to_center</zorder>
+   <zorder>lblPlusAcidTL</zorder>
+   <zorder>lblPlusBaseTR</zorder>
+   <zorder>lblPlusAcidTL_2</zorder>
+   <zorder>lblPlusBaseTR_2</zorder>
+   <zorder>arrow_top_right_to_center_2</zorder>
+   <zorder>lblPlusBaseTR_3</zorder>
+   <zorder>lblPlusAcidTL_5</zorder>
+   <zorder>arrow_top_right_to_center_3</zorder>
+   <zorder>arrow_top_right_to_center_4</zorder>
+   <zorder>arrow_top_right_to_center_5</zorder>
+   <zorder>lblPlusBaseTR_6</zorder>
+   <zorder>lblPlusBaseTR_7</zorder>
+   <zorder>lblPlusBaseTR_8</zorder>
+   <zorder>lblPlusAcidTL_3</zorder>
+   <zorder>lblPlusAcidTL_4</zorder>
+   <zorder>lblPlusBaseBL</zorder>
+   <zorder>lblPlusKimloai</zorder>
+   <zorder>lblPlusBaseBL_2</zorder>
+   <zorder>lblPlusBaseTR_4</zorder>
+   <zorder>lblPlusBaseTR_5</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

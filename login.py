@@ -119,7 +119,9 @@ ELEMENT_INFO = {
     "Og": {"weight": 294,    "valence": ["II"]}
 }
 
-
+import re
+from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QLabel
 import sys
 import os
 import random
@@ -143,6 +145,8 @@ from PyQt6.QtCore import (
     QObject, QEvent, QPropertyAnimation, QRect,
     QEasingCurve, Qt, QTimer
 )
+
+from PyQt6.QtCore import Qt, QEvent, QPropertyAnimation, QRect, QEasingCurve, QPoint, QSize
 
 
 
@@ -247,7 +251,7 @@ yearlist = []
 # class register(QMainWindow):
 #     def __init__(self):
 #         super().__init__()
-#         uic.loadUi(rf"C:\Users\{os.getlogin()}\Downloads\天気予報\サインアップ.ui", self)
+#         uic.loadUi("signup.ui", self)
 #         self.spin_day.setRange(1, 31)
 #         self.spin_month.setRange(1, 12)
 #         self.spin_year.setRange(1900, 2024)
@@ -293,6 +297,17 @@ yearlist = []
 #                 msgBox.exec()
 
 
+from PyQt6 import QtWidgets, uic
+from PyQt6.QtCore import QEvent, QPropertyAnimation, QEasingCurve, QPoint
+from PyQt6.QtWidgets import QLabel, QMainWindow
+
+
+# Paste this class into your file (replace any existing MainWindow)
+import re
+from PyQt6 import uic, QtWidgets
+from PyQt6.QtWidgets import QMainWindow, QLabel, QWidget, QPushButton
+from PyQt6.QtCore import QEvent, QPropertyAnimation, QEasingCurve, QPoint, Qt
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -301,31 +316,69 @@ class MainWindow(QMainWindow):
         self.table_pb.clicked.connect(self.periodic_table)
         self.formula_pb.clicked.connect(self.formula_table)
         self.formula1.clicked.connect(self.formula1_form)
+        self.formula2.clicked.connect(self.formula2_form)
+        self.formula3.clicked.connect(self.formula3_form)
 
+    # --- Gắn hiệu ứng nổi cho tất cả QLabel trong parent_widget ---
+    def attach_hover_effect(self, parent_widget):
+        for label in parent_widget.findChildren(QLabel):
+            name = (label.objectName() or "").lower()
+            if name.startswith("arrow"):
+                continue
+
+            label.installEventFilter(self)
+            # Check xem label có trong layout không
+            label._in_layout = label.parentWidget() and label.parentWidget().layout() is not None
+            if label._in_layout:
+                label._original_size = label.size()
+                label._anim = QPropertyAnimation(label, b"maximumSize")
+            else:
+                label._original_geometry = label.geometry()
+                label._anim = QPropertyAnimation(label, b"geometry")
+
+            label._anim.setDuration(150)
+
+    # --- Mở formula1 (QWidget) ---
     def formula1_form(self):
         self.new_window = QtWidgets.QWidget()
         uic.loadUi("formula1.ui", self.new_window)
+        self.attach_hover_effect(self.new_window)
+        self.new_window.show()
 
-        for label in self.new_window.findChildren(QLabel):
-            label.installEventFilter(self)
-            label._original_geometry = label.geometry()
-            label._anim = QPropertyAnimation(label, b"geometry")
-            label._anim.setDuration(150)
+    # --- Mở formula2 (QMainWindow) ---
+    def formula2_form(self):
+        self.new_window = QtWidgets.QMainWindow()
+        uic.loadUi("formula2.ui", self.new_window)
+        self.attach_hover_effect(self.new_window)
+        self.new_window.show()
+
+    def formula3_form(self):
+        self.new_window = QtWidgets.QMainWindow()
+        uic.loadUi("formula3.ui", self.new_window)
+
+        self.attach_hover_effect(self.new_window)
+        self.new_window.show()
+
+        # Áp dụng hiệu ứng nổi giống periodic_table
+        for btn in self.new_window.findChildren(QPushButton):
+            HoverEffect(btn)
 
         self.new_window.show()
 
+    # --- Hover Effect ---
     def eventFilter(self, obj, event):
         if isinstance(obj, QLabel):
-            text = obj.text().strip()
+            name = (obj.objectName() or "").lower()
+            if name.startswith("arrow"):
+                return super().eventFilter(obj, event)
 
-            # Skip these cases
+            text = obj.text().strip()
             if text.startswith("I") or text in ("=", "×", "/"):
                 return super().eventFilter(obj, event)
 
             if event.type() == QEvent.Type.Enter:
                 self.show_floating_label(obj, text)
                 self.enlarge_label(obj)
-
             elif event.type() == QEvent.Type.Leave:
                 if hasattr(self, "_float_label") and self._float_label:
                     self._float_label.deleteLater()
@@ -335,36 +388,50 @@ class MainWindow(QMainWindow):
         return super().eventFilter(obj, event)
 
     def show_floating_label(self, target_label, original_text):
+        # Dùng plain text (loại bỏ HTML tag)
+        from PyQt6.QtGui import QTextDocument
+        doc = QTextDocument()
+        doc.setHtml(original_text)
+        plain_text = doc.toPlainText().strip()
+
         text_map = {
-            "n": "n <sub>là kí hiệu số mol.</sub>",
-            "m": "m <sub>là kí hiệu khối lượng (gam).</sub>",
-            "V": "V <sub>là kí hiệu thể tích (lít).</sub>",
-            "24.79": "24.79 <sub>là số lít khí có trong 1 mol<br>chất khí ở đkc(25°C và 1 bar)</sub>",
-            "Cᴹ": "Cᴹ <sub>là kí hiệu nồng độ mol (Mol/lít)</sub>",
-            "Vᵈᵈ": "Vᵈᵈ <sub>là kí hiệu thể tích dung dịch (lít)</sub>",
-            "M": "M <sub>là kí hiệu khối lượng mol (gam/mol)</sub>",
-            "D": "D <sub>là kí hiệu khối lượng riêng (gam/ml)</sub>",
-            "C%": "C% <sub>là kí hiệu nồng độ phần trăm <br>(Số g chất tan có trong 100g dung dịch)</sub>",
-            "mᶜᵗ": "mᶜᵗ <sub>là kí hiệu khối lượng chất tan trong dd (g)</sub>",
-            "mᵈᵈ": "mᵈᵈ <sub>là kí hiệu khối lượng dung dịch (g)</sub>",
-            "nᶜᵗ": "nᶜᵗ <sub>là kí hiệu số mol chất tan trong dd</sub>",
+            "n": "<big>n</big> là kí hiệu số mol.",
+            "m": "<big>m</big> là kí hiệu khối lượng (gam).",
+            "V": "<big>V</big> là kí hiệu thể tích (lít).",
+            "24.79": "<big>24.79</big> là số lít khí có trong 1 mol<br>chất khí ở đkc(25°C và 1 bar).",
+            "Cᴹ": "<big>Cᴹ</big> là kí hiệu nồng độ mol (Mol/lít).",
+            "Vᵈᵈ": "<big>Vᵈᵈ</big> là kí hiệu thể tích dung dịch (lít).",
+            "M": "<big>M</big> là kí hiệu khối lượng mol (gam/mol).",
+            "D": "<big>D</big> là kí hiệu khối lượng riêng (gam/ml).",
+            "C%": "<big>C%</big> là kí hiệu nồng độ phần trăm <br>(Số g chất tan có trong 100g dung dịch).",
+            "mᶜᵗ": "<big>mᶜᵗ</big> là kí hiệu khối lượng chất tan trong dd (g).",
+            "mᵈᵈ": "<big>mᵈᵈ</big> là kí hiệu khối lượng dung dịch (g).",
+            "nᶜᵗ": "<big>nᶜᵗ</big> là kí hiệu số mol chất tan trong dd.",
+            "MUỐI": "- Muối là hợp chất mà phân tử \ngồm hay nhiều nguyên tử kim loại \nliên kết với một hay nhiều gốc axit",
+            "+ Muối": "- Muối là hợp chất mà phân tử \ngồm hay nhiều nguyên tử kim loại \nliên kết với một hay nhiều gốc axit",
+            "ACID": "- Axit là hợp chất mà phân tử gồm có 1 hay \nnhiều nguyên tử hiđro liên kết với gốc axit.",
+            "+ Axit": "- Axit là hợp chất mà phân tử \ngồm có 1 hay nhiều nguyên tử hiđro \nliên kết với gốc axit.",
+            "BASE": "- Base là hợp chất mà phân tử gồm có \n1 hay nhiều nguyên tử kim loại liên kết với \n1 hay nhiều nhóm hiđroxyl (OH).",
+            "+ Base": "- Base là hợp chất mà phân tử gồm có \nnguyên tử kim loại liên kết với \n1 hay nhiều nhóm hiđroxyl (OH).",
+            "OXIDE ACID": "- Oxit axit thường là oxit của phi kim và tương ứng với một axit.",
+            "+ Oxit Axit": "- Oxit axit thường là oxit của phi kim và tương ứng với một axit.",
+            "OXIDE BASE": "- Oxit bazơ thường là oxit của kim loại và tương ứng với một bazơ.",
+            "+ Oxit Base": "- Oxit bazơ thường là oxit của kim loại và tương ứng với một bazơ.",
+            "Kim loại mạnh": "Tan trong nước.\nPhản ứng với H2O ở nhiệt độ thường, sinh ra base và khí H2.\nKhông tham gia quá trình tạo muối.",
+            "Kim loại trung bình":"Không tan trong nước.\nKhông phản ứng với H2O ở điều kiện thường.\nĐiều kiện thích hợp (nhiệt độ cao) phản ứng với nước => Base và khí H2\nCó khả năng đẩy các kim loại yếu hơn ra khỏi muối và tạo ra muối mới",
+            "Kim loại yếu":"Không tan trong nước.\nKhó phản ứng với H2O\nCó khả năng đẩy các kim loại yếu hơn ra khỏi muối và tạo ra muối mới\nKhông phản ứng với acid loãng, một số phản ứng với acid đặc nóng"
         }
-        display_text = text_map.get(original_text.strip(), original_text.strip())
+
+        display_text = text_map.get(plain_text, plain_text)
 
         if hasattr(self, "_float_label") and self._float_label:
             self._float_label.deleteLater()
 
         self._float_label = QLabel(display_text, target_label.parent())
-        self._float_label.setStyleSheet("""
-            QLabel {
-                background-color: #f7ebeb;
-                border-radius: 6px;
-                padding: 4px 8px;
-                font-weight: bold;
-                font-size: 13px;
-                font-family: Montserrat, sans-serif;
-            }
-        """)
+        self._float_label.setStyleSheet(
+            target_label.styleSheet() +
+            "padding: 4px 8px; font-weight: bold; font-size: 13px;"
+        )
         self._float_label.adjustSize()
 
         target_geom = target_label.geometry()
@@ -383,27 +450,50 @@ class MainWindow(QMainWindow):
 
 
     def enlarge_label(self, label):
-        label._original_geometry = label.geometry()
-        new_geom = label._original_geometry.translated(0, -2)  # Slight offset upward
         label._anim.stop()
-        label._anim.setStartValue(label._original_geometry)
-        label._anim.setEndValue(new_geom)
-        label._anim.start()
+        if getattr(label, "_in_layout", False):
+            # Không resize vật lý -> chỉ đổi font
+            font = label.font()
+            label._original_font_size = font.pointSize()
+            font.setPointSize(int(font.pointSize() * 4))  # to hơn 30%
+            label.setFont(font)
+        else:
+            label._anim.setStartValue(label._original_geometry)
+            label._anim.setEndValue(QRect(
+                label._original_geometry.x() - 2,
+                label._original_geometry.y() - 2,
+                label._original_geometry.width() + 4,
+                label._original_geometry.height() + 4
+            ))
+            label._anim.start()
 
     def shrink_label(self, label):
-        if hasattr(label, "_original_geometry"):
-            label._anim.stop()
+        label._anim.stop()
+        if getattr(label, "_in_layout", False):
+            # Trả lại font gốc
+            if hasattr(label, "_original_font_size"):
+                font = label.font()
+                font.setPointSize(label._original_font_size)
+                label.setFont(font)
+        else:
             label._anim.setStartValue(label.geometry())
             label._anim.setEndValue(label._original_geometry)
             label._anim.start()
 
+
     def periodic_table(self):
         r_table.show()
-
 
     def formula_table(self):
         self.Formulawidget.raise_()
         self.Formulawidget.show()
+
+
+
+
+
+
+
 
 
 
@@ -604,10 +694,13 @@ class PTable(QMainWindow):
             HoverEffect(btn)
 
 
+
+
 app = QApplication(sys.argv)
 # r_login = LoginWindow()
 r_main = MainWindow()
 r_table = PTable()
+
 
 # r_login.show()
 r_main.show()

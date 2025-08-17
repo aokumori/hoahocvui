@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1368</width>
+    <height>447</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="PB_Ba">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string>
+    </property>
+    <property name="text">
+     <string>₅₆
+Ba
+ᵇᵃʳᶦᵘᵐ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Na">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+    </property>
+    <property name="text">
+     <string>₁₁
+Na
+ˢᵒᵈᶦᵘᵐ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_K">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+    </property>
+    <property name="text">
+     <string>₁₉
+K
+ᵖᵒᵗᵃˢˢᶦᵘᵐ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Ca">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string>
+    </property>
+    <property name="text">
+     <string>₂₀
+Ca
+ᶜᵃˡᶜᶦᵘᵐ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Li">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+    </property>
+    <property name="text">
+     <string>₃
+Li
+ˡᶦᵗʰᶦᵘᵐ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Ag">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+    </property>
+    <property name="text">
+     <string>₄₇
+Ag
+ˢᶦˡᵛᵉʳ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Zn">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+    </property>
+    <property name="text">
+     <string>₃₀
+Zn
+ᶻᶦⁿᶜ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Sn">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+    </property>
+    <property name="text">
+     <string>₅₀
+Sn
+ᵗᶦⁿ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Pt">
+    <property name="geometry">
+     <rect>
+      <x>1080</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+    </property>
+    <property name="text">
+     <string>₇₈
+Pt
+ᵖˡᵃᵗᶦⁿᵘᵐ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Al">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+    </property>
+    <property name="text">
+     <string>₁₃
+Al
+ᵃˡᵘᵐᶦⁿᶦᵘᵐ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Fe">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+    </property>
+    <property name="text">
+     <string>₂₆
+Fe
+ᶦʳᵒⁿ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Pb">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+    </property>
+    <property name="text">
+     <string>₈₂
+Pb
+ˡᵉᵃᵈ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Au">
+    <property name="geometry">
+     <rect>
+      <x>1140</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+    </property>
+    <property name="text">
+     <string>₇₉
+Au
+ᵍᵒˡᵈ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Ni">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+    </property>
+    <property name="text">
+     <string>₂₈
+Ni
+ⁿᶦᶜᵏᵉˡ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Cu">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+    </property>
+    <property name="text">
+     <string>₂₉
+Cu
+ᶜᵒᵖᵖᵉʳ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Mg">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #ffe7e7; color: #d60c32; border: 1px solid #d60c32;</string>
+    </property>
+    <property name="text">
+     <string>₁₂
+Mg
+ᵐᵃᵍⁿᵉˢᶦᵘᵐ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_H">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+    </property>
+    <property name="text">
+     <string>₁
+H
+ʰʸᵈʳᵒᵍᵉⁿ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PB_Hg">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>200</y>
+      <width>42</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+    </property>
+    <property name="text">
+     <string>₈₀
+Hg
+ᵐᵉʳᶜᵘʳʸ</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>280</y>
+      <width>291</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Kim loại mạnh&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>280</y>
+      <width>401</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #d6f9e8; color: #09340a; border: 1px solid #09340a;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Kim loại trung bình&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>280</y>
+      <width>281</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f3e8fd; color: #6451ef; border: 1px solid #6451ef;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Kim loại yếu&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>280</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #d8f8ff; color: #04778e; border: 1px solid #04778e;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;H&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1368</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
