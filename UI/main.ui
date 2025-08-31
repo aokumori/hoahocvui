@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>584</width>
+    <width>577</width>
     <height>433</height>
    </rect>
   </property>
@@ -101,7 +101,7 @@ QPushButton:hover {
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="customlocation">
+      <widget class="QPushButton" name="quiz_pb">
        <property name="styleSheet">
         <string notr="true">QPushButton {
 	font: 99 10pt &quot;Noto Serif JP ExtraLight&quot;;
@@ -122,39 +122,11 @@ QPushButton:hover {
 </string>
        </property>
        <property name="text">
-        <string>   Custom</string>
+        <string>Memorize</string>
        </property>
-       <property name="iconSize">
-        <size>
-         <width>30</width>
-         <height>30</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="fire_pb">
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-	font: 99 10pt &quot;Noto Serif JP ExtraLight&quot;;
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
-                                stop:0 #B9375D, 
-                                stop:1 #D25D5D);
-    color: white;
-   
-    border-radius: 8px;
-    padding: 5px 10px;
-}
-
-QPushButton:hover {
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
-                                stop:0 skyblue, 
-                                stop:1 #407be3);
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Fire Detector</string>
+       <property name="icon">
+        <iconset>
+         <normaloff>formula.png</normaloff>formula.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -292,7 +264,7 @@ QPushButton:hover {
 </string>
      </property>
      <property name="text">
-      <string>Sơ đồ các base tan và không tan</string>
+      <string>Sơ đồ các muối tan và không tan</string>
      </property>
      <property name="iconSize">
       <size>
@@ -340,7 +312,7 @@ QPushButton:hover {
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="Mainwidget" native="true">
+   <widget class="QWidget" name="Quizwidget" native="true">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -361,6 +333,158 @@ QWidget {
 }
 </string>
     </property>
+    <widget class="QPushButton" name="formula5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>321</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	font: 99 10pt &quot;Noto Serif JP ExtraLight&quot;;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #B9375D, 
+                                stop:1 #D25D5D);
+    color: white;
+   
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 skyblue, 
+                                stop:1 #407be3);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Công thức tính khối lượng/thể tích</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="formula8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>260</y>
+       <width>321</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	font: 99 10pt &quot;Noto Serif JP ExtraLight&quot;;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #B9375D, 
+                                stop:1 #D25D5D);
+    color: white;
+   
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 skyblue, 
+                                stop:1 #407be3);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Sơ đồ các muối tan và không tan</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="formula6">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>321</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	font: 99 10pt &quot;Noto Serif JP ExtraLight&quot;;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #B9375D, 
+                                stop:1 #D25D5D);
+    color: white;
+   
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 skyblue, 
+                                stop:1 #407be3);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Sơ đồ mối quan hệ giữa các chất vô cơ</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="formula7">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>180</y>
+       <width>321</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	font: 99 10pt &quot;Noto Serif JP ExtraLight&quot;;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 #B9375D, 
+                                stop:1 #D25D5D);
+    color: white;
+   
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+                                stop:0 skyblue, 
+                                stop:1 #407be3);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Dãy phản ứng của các chất hóa học</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -368,7 +492,7 @@ QWidget {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>584</width>
+     <width>577</width>
      <height>18</height>
     </rect>
    </property>

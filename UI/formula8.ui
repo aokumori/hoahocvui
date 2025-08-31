@@ -1,0 +1,987 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>983</width>
+    <height>438</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Solubility Chart</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">font-family:montserrat;
+font-size:14px;
+color:#751330</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="3" column="5">
+     <widget class="QLabel" name="CaNO3_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QLabel" name="AgNO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="6">
+     <widget class="QLabel" name="BaNO3_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="7">
+     <widget class="QLabel" name="ZnNO3_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="9">
+     <widget class="QLabel" name="CuNO3_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="8">
+     <widget class="QLabel" name="PbNO3_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="11">
+     <widget class="QLabel" name="FeNO3_3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="10">
+     <widget class="QLabel" name="FeNO3_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="5">
+     <widget class="QLabel" name="CaCl2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="7">
+     <widget class="QLabel" name="ZnCl2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="6">
+     <widget class="QLabel" name="BaCl2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_Cl">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-Cl&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLabel" name="KCl">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLabel" name="NaCl">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QLabel" name="MgCl2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLabel" name="K2CO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_CO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;=CO₃&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QLabel" name="AgCl">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QLabel" name="Na2CO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="9">
+     <widget class="QLabel" name="CuCl2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="8">
+     <widget class="QLabel" name="PbCl2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;i&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="11">
+     <widget class="QLabel" name="FeCl3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="10">
+     <widget class="QLabel" name="FeCl2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLabel" name="KNO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_NO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-NO₃&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="12">
+     <widget class="QLabel" name="AlCl3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QLabel" name="NaNO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="5">
+     <widget class="QLabel" name="Ca3PO4_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="7">
+     <widget class="QLabel" name="Zn3PO4_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="6">
+     <widget class="QLabel" name="Ba3PO4_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="9">
+     <widget class="QLabel" name="Cu3PO4_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLabel" name="Na2SO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="12">
+     <widget class="QLabel" name="AlNO3_3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_SO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;=SO₄&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="4">
+     <widget class="QLabel" name="MgSO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLabel" name="K2SO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="5">
+     <widget class="QLabel" name="CaSO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;i&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="6">
+     <widget class="QLabel" name="BaSO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QLabel" name="Ag2SO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;i&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="7">
+     <widget class="QLabel" name="ZnSO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="8">
+     <widget class="QLabel" name="PbSO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="11">
+     <widget class="QLabel" name="Fe2SO4_3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="9">
+     <widget class="QLabel" name="CuSO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="12">
+     <widget class="QLabel" name="Al2SO4_3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="4">
+     <widget class="QLabel" name="MgCO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="3">
+     <widget class="QLabel" name="Ag2CO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="6">
+     <widget class="QLabel" name="BaCO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="5">
+     <widget class="QLabel" name="CaCO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="7">
+     <widget class="QLabel" name="ZnCO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="8">
+     <widget class="QLabel" name="PbCO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="10">
+     <widget class="QLabel" name="FeCO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="9">
+     <widget class="QLabel" name="CuCO3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="11">
+     <widget class="QLabel" name="Fe2CO3_3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="12">
+     <widget class="QLabel" name="Al2CO3_3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_PO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;≡PO₄&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3">
+     <widget class="QLabel" name="Ag3PO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLabel" name="K3PO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="4">
+     <widget class="QLabel" name="Mg3PO4_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QLabel" name="Na3PO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="8">
+     <widget class="QLabel" name="Pb3PO4_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="11">
+     <widget class="QLabel" name="FePO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="12">
+     <widget class="QLabel" name="AlPO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="label_K">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;K&lt;br/&gt;I&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label_Na">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Na&lt;br/&gt;I&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" rowspan="2">
+     <widget class="QLabel" name="label_corner">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Gốc&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Acid&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QLabel" name="label_Mg">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Mg&lt;br/&gt;II&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLabel" name="label_Ag">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Ag&lt;br/&gt;I&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QLabel" name="label_Ca">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Ca&lt;br/&gt;II&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="6">
+     <widget class="QLabel" name="label_Ba">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Ba&lt;br/&gt;II&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="9">
+     <widget class="QLabel" name="label_Cu">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Cu&lt;br/&gt;II&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="11">
+     <widget class="QLabel" name="label_Fe3">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Fe&lt;br/&gt;III&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="8">
+     <widget class="QLabel" name="label_Pb">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Pb&lt;br/&gt;II&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="7">
+     <widget class="QLabel" name="label_Zn">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Zn&lt;br/&gt;II&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="10">
+     <widget class="QLabel" name="label_Fe2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Fe&lt;br/&gt;II&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="12">
+     <widget class="QLabel" name="label_Al">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Al&lt;br/&gt;III&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" colspan="12">
+     <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Các kim loại&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="10">
+     <widget class="QLabel" name="Fe3PO4_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;k&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QLabel" name="MgNO3_2">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="10">
+     <widget class="QLabel" name="FeSO4">
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #751330;
+border-radius: 6px;
+background-color: #fae1e1;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;t&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>983</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

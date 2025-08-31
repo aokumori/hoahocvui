@@ -128,7 +128,7 @@ import random
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
+from PyQt6 import QtCore, QtGui, QtWidgets, uic
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QMessageBox, QDialogButtonBox,
     QLineEdit, QLabel, QWidget, QPushButton, QVBoxLayout,
@@ -145,10 +145,20 @@ from PyQt6.QtCore import (
     QObject, QEvent, QPropertyAnimation, QRect,
     QEasingCurve, Qt, QTimer
 )
+from PyQt6.QtWidgets import (
+    QWidget, QLabel, QLineEdit, QPushButton,
+    QVBoxLayout, QHBoxLayout, QGridLayout, QSizePolicy
+)
+from PyQt6.QtCore import QPropertyAnimation, QEasingCurve, QPoint
+from PyQt6.QtGui import QTextDocument
 
 from PyQt6.QtCore import Qt, QEvent, QPropertyAnimation, QRect, QEasingCurve, QPoint, QSize
 
-
+from PyQt6.QtWidgets import (
+    QApplication, QMainWindow, QWidget, QLabel, QVBoxLayout, 
+    QHBoxLayout, QGridLayout, QLineEdit, QPushButton
+)
+from cv2 import line
 
 global hovering_label, hovering_name, hovering_weight
 
@@ -311,13 +321,28 @@ from PyQt6.QtCore import QEvent, QPropertyAnimation, QEasingCurve, QPoint, Qt
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("main.ui", self)
+        uic.loadUi("UI/main.ui", self)
+        self.quiz_runner = QuizRunner(self)
 
         self.table_pb.clicked.connect(self.periodic_table)
         self.formula_pb.clicked.connect(self.formula_table)
+        self.quiz_pb.clicked.connect(self.quiz_table)
         self.formula1.clicked.connect(self.formula1_form)
         self.formula2.clicked.connect(self.formula2_form)
         self.formula3.clicked.connect(self.formula3_form)
+        self.formula4.clicked.connect(self.formula4_form)
+        self.formula5.clicked.connect(
+            lambda: self.quiz_runner.start_quiz("UI/formula5.ui", answers_source_ui="UI/formula1.ui")
+        )
+        self.formula6.clicked.connect(
+            lambda: self.quiz_runner.start_quiz("UI/formula6.ui", answers_source_ui="UI/formula2.ui")
+        )
+        self.formula7.clicked.connect(
+            lambda: self.quiz_runner.start_quiz("UI/formula7.ui", answers_source_ui="UI/formula3.ui")
+        )
+        self.formula8.clicked.connect(
+            lambda: self.quiz_runner.start_quiz("UI/formula8.ui", answers_source_ui="UI/formula4.ui")
+        )
 
     # --- Gắn hiệu ứng nổi cho tất cả QLabel trong parent_widget ---
     def attach_hover_effect(self, parent_widget):
@@ -341,20 +366,20 @@ class MainWindow(QMainWindow):
     # --- Mở formula1 (QWidget) ---
     def formula1_form(self):
         self.new_window = QtWidgets.QWidget()
-        uic.loadUi("formula1.ui", self.new_window)
+        uic.loadUi("UI/formula1.ui", self.new_window)
         self.attach_hover_effect(self.new_window)
         self.new_window.show()
 
     # --- Mở formula2 (QMainWindow) ---
     def formula2_form(self):
         self.new_window = QtWidgets.QMainWindow()
-        uic.loadUi("formula2.ui", self.new_window)
+        uic.loadUi("UI/formula2.ui", self.new_window)
         self.attach_hover_effect(self.new_window)
         self.new_window.show()
 
     def formula3_form(self):
         self.new_window = QtWidgets.QMainWindow()
-        uic.loadUi("formula3.ui", self.new_window)
+        uic.loadUi("UI/formula3.ui", self.new_window)
 
         self.attach_hover_effect(self.new_window)
         self.new_window.show()
@@ -365,16 +390,24 @@ class MainWindow(QMainWindow):
 
         self.new_window.show()
 
+    def formula4_form(self):
+        self.new_window = QtWidgets.QMainWindow()
+        uic.loadUi("UI/formula4.ui", self.new_window)
+        self.attach_hover_effect(self.new_window)
+        self.new_window.show()
+
     # --- Hover Effect ---
     def eventFilter(self, obj, event):
         if isinstance(obj, QLabel):
             name = (obj.objectName() or "").lower()
-            if name.startswith("arrow"):
+            if name.startswith("arrow") or name.startswith("line"):
                 return super().eventFilter(obj, event)
 
             text = obj.text().strip()
-            if text.startswith("I") or text in ("=", "×", "/"):
+            if text.startswith(("I", "∣", "Periodic","V.")) or text in ("=", "×", "/", "10", "100%", "Periodic Table", "*", "**",""):
                 return super().eventFilter(obj, event)
+
+
 
             if event.type() == QEvent.Type.Enter:
                 self.show_floating_label(obj, text)
@@ -388,13 +421,16 @@ class MainWindow(QMainWindow):
         return super().eventFilter(obj, event)
 
     def show_floating_label(self, target_label, original_text):
-        # Dùng plain text (loại bỏ HTML tag)
         from PyQt6.QtGui import QTextDocument
+        from PyQt6.QtGui import QTextDocument, QPalette, QColor
         doc = QTextDocument()
         doc.setHtml(original_text)
         plain_text = doc.toPlainText().strip()
 
+        # --- mapping text ---
         text_map = {
+            # "Kim loại kiềm":"Kim loại kiềm: nguyên tố nhóm IA\nMềm nhẹ trắng bạc, dẫn điện tốt, tính khử mạnh\nPhản ứng với nước → base + H₂, với O₂ & halogen → muối ion",
+            # "Kim loại kiềm thổ":"Kim loại kiềm thổ: nguyên tố nhóm IIA\nCứng hơn, nặng hơn kim loại kiềm, màu trắng bạc, dẫn điện tốt\nTính khử mạnh nhưng yếu hơn kim loại kiềm\nPhản ứng với nước (từ Ca trở xuống) → base + H₂, với O₂ & halogen → muối ion",
             "n": "<big>n</big> là kí hiệu số mol.",
             "m": "<big>m</big> là kí hiệu khối lượng (gam).",
             "V": "<big>V</big> là kí hiệu thể tích (lít).",
@@ -407,46 +443,154 @@ class MainWindow(QMainWindow):
             "mᶜᵗ": "<big>mᶜᵗ</big> là kí hiệu khối lượng chất tan trong dd (g).",
             "mᵈᵈ": "<big>mᵈᵈ</big> là kí hiệu khối lượng dung dịch (g).",
             "nᶜᵗ": "<big>nᶜᵗ</big> là kí hiệu số mol chất tan trong dd.",
-            "MUỐI": "- Muối là hợp chất mà phân tử \ngồm hay nhiều nguyên tử kim loại \nliên kết với một hay nhiều gốc axit",
-            "+ Muối": "- Muối là hợp chất mà phân tử \ngồm hay nhiều nguyên tử kim loại \nliên kết với một hay nhiều gốc axit",
-            "ACID": "- Axit là hợp chất mà phân tử gồm có 1 hay \nnhiều nguyên tử hiđro liên kết với gốc axit.",
-            "+ Axit": "- Axit là hợp chất mà phân tử \ngồm có 1 hay nhiều nguyên tử hiđro \nliên kết với gốc axit.",
-            "BASE": "- Base là hợp chất mà phân tử gồm có \n1 hay nhiều nguyên tử kim loại liên kết với \n1 hay nhiều nhóm hiđroxyl (OH).",
-            "+ Base": "- Base là hợp chất mà phân tử gồm có \nnguyên tử kim loại liên kết với \n1 hay nhiều nhóm hiđroxyl (OH).",
-            "OXIDE ACID": "- Oxit axit thường là oxit của phi kim và tương ứng với một axit.",
-            "+ Oxit Axit": "- Oxit axit thường là oxit của phi kim và tương ứng với một axit.",
-            "OXIDE BASE": "- Oxit bazơ thường là oxit của kim loại và tương ứng với một bazơ.",
-            "+ Oxit Base": "- Oxit bazơ thường là oxit của kim loại và tương ứng với một bazơ.",
-            "Kim loại mạnh": "Tan trong nước.\nPhản ứng với H2O ở nhiệt độ thường, sinh ra base và khí H2.\nKhông tham gia quá trình tạo muối.",
-            "Kim loại trung bình":"Không tan trong nước.\nKhông phản ứng với H2O ở điều kiện thường.\nĐiều kiện thích hợp (nhiệt độ cao) phản ứng với nước => Base và khí H2\nCó khả năng đẩy các kim loại yếu hơn ra khỏi muối và tạo ra muối mới",
-            "Kim loại yếu":"Không tan trong nước.\nKhó phản ứng với H2O\nCó khả năng đẩy các kim loại yếu hơn ra khỏi muối và tạo ra muối mới\nKhông phản ứng với acid loãng, một số phản ứng với acid đặc nóng"
+            "MUỐI": "• Muối là hợp chất mà phân tử \ngồm hay nhiều nguyên tử kim loại \nliên kết với một hay nhiều gốc axit",
+            "+ Muối": "• Muối là hợp chất mà phân tử \ngồm hay nhiều nguyên tử kim loại \nliên kết với một hay nhiều gốc axit",
+            "ACID": "• Axit là hợp chất mà phân tử gồm có 1 hay \nnhiều nguyên tử hiđro liên kết với gốc axit.",
+            "+ Axit": "• Axit là hợp chất mà phân tử \ngồm có 1 hay nhiều nguyên tử hiđro \nliên kết với gốc axit.",
+            "BASE": "• Base là hợp chất mà phân tử gồm có \n1 hay nhiều nguyên tử kim loại liên kết với \n1 hay nhiều nhóm hiđroxyl (OH).",
+            "+ Base": "• Base là hợp chất mà phân tử gồm có \nnguyên tử kim loại liên kết với \n1 hay nhiều nhóm hiđroxyl (OH).",
+            "OXIDE ACID": "• Oxit axit thường là oxit của phi kim và tương ứng với một axit.",
+            "+ Oxit Axit": "• Oxit axit thường là oxit của phi kim và tương ứng với một axit.",
+            "OXIDE BASE": "• Oxit bazơ thường là oxit của kim loại và tương ứng với một bazơ.",
+            "+ Oxit Base": "• Oxit bazơ thường là oxit của kim loại và tương ứng với một bazơ.",
+            "+ Muối": "• Muối là hợp chất mà phân tử \ngồm hay nhiều nguyên tử kim loại \nliên kết với một hay nhiều gốc axit",
+            "Kim loại mạnh": "• Tan trong nước.\n• Phản ứng với H2O ở nhiệt độ thường, sinh ra base và khí H2.\n• Không tham gia quá trình tạo muối.",
+            "Kim loại trung bình":"• Không tan trong nước.\n• Không phản ứng với H2O ở điều kiện thường.\n• Điều kiện thích hợp (nhiệt độ cao) phản ứng với nước => Base và khí H2\n• Có khả năng đẩy các kim loại yếu hơn ra khỏi muối và tạo ra muối mới",
+            "Kim loại yếu":"• Không tan trong nước.\n• Khó phản ứng với H2O\n• Có khả năng đẩy các kim loại yếu hơn ra khỏi muối và tạo ra muối mới\n• Không phản ứng với acid loãng, một số phản ứng với acid đặc nóng",
+
+            # OBJECTNAME-BASED KEYS
+            "label_K": "Potassium",
+            "label_Na": "Sodium",
+            "label_Ag": "Silver",
+            "label_Mg": "Magnesium",
+            "label_Ca": "Calcium",
+            "label_Ba": "Barium",
+            "label_Zn": "Zinc",
+            "label_Pb": "Lead",
+            "label_Cu": "Copper",
+            "label_Fe2": "Iron(II)",
+            "label_Fe3": "Iron(III)",
+            "label_Al": "Aluminum",
+            "label_Cl": "Chloride",
+            "label_NO3": "Nitrate",
+            "label_SO4": "Sulfate",
+            "label_CO3": "Carbonate",
+            "label_PO4": "Phosphate",
+            "KCl": "KCl\nPotassium Chloride",
+            "KNO3": "KNO₃\nPotassium Nitrate",
+            "K2SO4": "K₂SO₄\nPotassium Sulfate",
+            "K3PO4": "K₃PO₄\nPotassium Phosphate",
+            "K2CO3": "K₂CO₃\nPotassium Carbonate",
+            "NaCl": "NaCl\nSodium Chloride",
+            "NaNO3": "NaNO₃\nSodium Nitrate",
+            "Na2SO4": "Na₂SO₄\nSodium Sulfate",
+            "Na2CO3": "Na₂CO₃\nSodium Carbonate",
+            "Na3PO4": "Na₃PO₄\nSodium Phosphate",
+            "AgCl": "AgCl\nSilver Chloride",
+            "AgNO3": "AgNO₃\nSilver Nitrate",
+            "Ag2SO4": "Ag₂SO₄\nSilver Sulfate",
+            "Ag2CO3": "Ag₂CO₃\nSilver Carbonate",
+            "Ag3PO4": "Ag₃PO₄\nSilver Phosphate",
+            "MgCl2": "MgCl₂\nMagnesium Chloride",
+            "MgNO3_2": "Mg(NO₃)₂\nMagnesium Nitrate",
+            "MgSO4": "MgSO₄\nMagnesium Sulfate",
+            "MgCO3": "MgCO₃\nMagnesium Carbonate",
+            "Mg3PO4_2": "Mg₃(PO₄)₂\nMagnesium Phosphate",
+            "CaCl2": "CaCl₂\nCalcium Chloride",
+            "CaNO3_2": "Ca(NO₃)₂\nCalcium Nitrate",
+            "CaSO4": "CaSO₄\nCalcium Sulfate",
+            "CaCO3": "CaCO₃\nCalcium Carbonate",
+            "Ca3PO4_2": "Ca₃(PO₄)₂\nCalcium Phosphate",
+            "BaCl2": "BaCl₂\nBarium Chloride",
+            "BaNO3_2": "Ba(NO₃)₂\nBarium Nitrate",
+            "BaSO4": "BaSO₄\nBarium Sulfate",
+            "BaCO3": "BaCO₃\nBarium Carbonate",
+            "Ba3PO4_2": "Ba₃(PO₄)₂\nBarium Phosphate",
+            "ZnCl2": "ZnCl₂\nZinc Chloride",
+            "ZnNO3_2": "Zn(NO₃)₂\nZinc Nitrate",
+            "ZnSO4": "ZnSO₄\nZinc Sulfate",
+            "ZnCO3": "ZnCO₃\nZinc Carbonate",
+            "Zn3PO4_2": "Zn₃(PO₄)₂\nZinc Phosphate",
+            "PbCl2": "PbCl₂\nLead Chloride",
+            "PbNO3_2": "Pb(NO₃)₂\nLead Nitrate",
+            "PbSO4": "PbSO₄\nLead Sulfate",
+            "PbCO3": "PbCO₃\nLead Carbonate",
+            "Pb3PO4_2": "Pb₃(PO₄)₂\nLead Phosphate",
+            "CuCl2": "CuCl₂\nCopper Chloride",
+            "CuNO3_2": "Cu(NO₃)₂\nCopper Nitrate",
+            "CuSO4": "CuSO₄\nCopper Sulfate",
+            "CuCO3": "CuCO₃\nCopper Carbonate",
+            "Cu3PO4_2": "Cu₃(PO₄)₂\nCopper Phosphate",
+            "FeCl2": "FeCl₂\nIron(II) Chloride",
+            "FeNO3_2": "Fe(NO₃)₂\nIron(II) Nitrate",
+            "FeSO4": "FeSO₄\nIron(II) Sulfate",
+            "FeCO3": "FeCO₃\nIron(II) Carbonate",
+            "Fe3PO4_2": "Fe₃(PO₄)₂\nIron(II) Phosphate",
+            "FeCl3": "FeCl₃\nIron(III) Chloride",
+            "FeNO3_3": "Fe(NO₃)₃\nIron(III) Nitrate",
+            "Fe2SO4_3": "Fe₂(SO₄)₃\nIron(III) Sulfate",
+            "Fe2CO3_3": "Fe₂(CO₃)₃\nIron(III) Carbonate",
+            "FePO4": "FePO₄\nIron(III) Phosphate",
+            "AlCl3": "AlCl₃\nAluminum Chloride",
+            "AlNO3_3": "Al(NO₃)₃\nAluminum Nitrate",
+            "Al2SO4_3": "Al₂(SO₄)₃\nAluminum Sulfate",
+            "Al2CO3_3": "Al₂(CO₃)₃\nAluminum Carbonate",
+            "AlPO4": "AlPO₄\nAluminum Phosphate"
         }
 
-        display_text = text_map.get(plain_text, plain_text)
+        obj_name = (target_label.objectName() or "").strip()
+        display_text = text_map.get(obj_name, text_map.get(plain_text, plain_text))
+        # --- copy colors from target_label ---
+        palette = target_label.palette()
+        text_color = palette.color(QPalette.ColorRole.WindowText)
+        bg_color = palette.color(QPalette.ColorRole.Window)
 
         if hasattr(self, "_float_label") and self._float_label:
             self._float_label.deleteLater()
 
         self._float_label = QLabel(display_text, target_label.parent())
         self._float_label.setStyleSheet(
-            target_label.styleSheet() +
-            "padding: 4px 8px; font-weight: bold; font-size: 13px;"
+            f"color: {text_color.name()}; "
+            f"background-color: {bg_color.name()}; "
+            f"border: 1px solid {text_color.name()}; "
+            "padding: 2px 2px; font-weight: bold; font-size: 13px; border-radius: 6px;"
         )
         self._float_label.adjustSize()
+        self._float_label.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
 
         target_geom = target_label.geometry()
-        start_y = target_geom.top() - self._float_label.height() // 2
-        end_y = target_geom.top() - self._float_label.height() - 8
+        parent_geom = target_label.parentWidget().geometry()
+        float_w = self._float_label.width()
+        float_h = self._float_label.height()
 
-        self._float_label.move(target_geom.left(), start_y)
+        # mặc định hiện phía trên
+        x = target_geom.left()
+        y = target_geom.top() - float_h - 8
+
+        # nếu label gần cạnh trên thì đẩy xuống dưới
+        if y < 0:
+            y = target_geom.bottom() + 8
+
+        # nếu label gần cạnh phải thì đẩy sang trái
+        if x + float_w > parent_geom.width():
+            x = target_geom.right() - float_w
+
+        # nếu label gần cạnh trái thì ép sát trái
+        if x < 0:
+            x = 0
+
+        self._float_label.move(x, y)
         self._float_label.show()
 
+        # animation nhẹ nhàng
         self._float_anim = QPropertyAnimation(self._float_label, b"pos")
         self._float_anim.setDuration(250)
         self._float_anim.setEasingCurve(QEasingCurve.Type.OutQuad)
-        self._float_anim.setStartValue(self._float_label.pos())
-        self._float_anim.setEndValue(self._float_label.pos() + QPoint(0, end_y - start_y))
+        self._float_anim.setStartValue(QPoint(x, y + 10))  # bắt đầu thấp hơn một chút
+        self._float_anim.setEndValue(QPoint(x, y))
         self._float_anim.start()
+
+
 
 
     def enlarge_label(self, label):
@@ -482,11 +626,16 @@ class MainWindow(QMainWindow):
 
 
     def periodic_table(self):
+        self.attach_hover_effect(r_table)
         r_table.show()
 
     def formula_table(self):
         self.Formulawidget.raise_()
         self.Formulawidget.show()
+
+    def quiz_table(self):
+        self.Quizwidget.raise_()
+        self.Quizwidget.show()
 
 
 
@@ -666,9 +815,31 @@ class HoverEffect(QObject):
         bw, bh = self.button.width(), self.button.height()
         fw, fh = self.float_widget.width(), self.float_widget.height()
         global_pos = self.button.mapToGlobal(self.button.rect().center())
+
         fx = int(global_pos.x() - fw / 2)
         fy = int(global_pos.y() - bh / 2 - fh - 10)
 
+        # Lấy kích thước màn hình hiện tại
+        screen_geo = QtGui.QGuiApplication.primaryScreen().availableGeometry()
+        sw, sh = screen_geo.width(), screen_geo.height()
+
+        # Nếu tràn ra ngoài trái
+        if fx < 0:
+            fx = 5
+        # Nếu tràn ra ngoài phải
+        if fx + fw > sw:
+            fx = sw - fw - 5
+
+        # Nếu tràn ra ngoài trên
+        if fy < 0:
+            # đặt xuống dưới button thay vì trên
+            fy = global_pos.y() + bh // 2 + 10
+
+        # Nếu tràn ra ngoài dưới (ít gặp, nhưng xử lý cho chắc)
+        if fy + fh > sh:
+            fy = sh - fh - 5
+
+        # Đặt vị trí ban đầu và animate
         self.float_widget.setGeometry(fx, fy + 20, fw, fh)
         self.float_widget.setVisible(True)
 
@@ -678,9 +849,303 @@ class HoverEffect(QObject):
         self.float_anim.setEndValue(QRect(fx, fy, fw, fh))
         self.float_anim.start()
 
+
     def hide_floating_widget(self):
         self.float_widget.setVisible(False)
 
+#------QUIZZING------
+# QuizRunner v2 — hỗ trợ nguồn đáp án (content UI) và mapping theo objectName hoặc text
+import random
+import unicodedata
+from PyQt6 import uic, QtWidgets
+from PyQt6.QtWidgets import QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QHBoxLayout
+from PyQt6.QtCore import QPropertyAnimation, QEasingCurve, QPoint
+from PyQt6.QtGui import QTextDocument
+
+def normalize_text_for_compare(s: str) -> str:
+    if s is None:
+        return ""
+    s = s.strip()
+    doc = QTextDocument()
+    doc.setHtml(s)
+    s = doc.toPlainText()
+    s = unicodedata.normalize("NFD", s)
+    s = "".join(ch for ch in s if unicodedata.category(ch) != "Mn")
+    s = " ".join(s.split()).lower()
+    return s
+
+def load_answers_from_ui(ui_path: str):
+    """
+    Load a UI and return two dicts:
+      - by_objname[objname] = plain_text
+      - by_plaintext[plain_text] = plain_text (same, for fallback)
+    """
+    answers_obj = {}
+    answers_text = {}
+
+    try:
+        loaded = uic.loadUi(ui_path)
+    except TypeError:
+        loaded = QtWidgets.QWidget()
+        uic.loadUi(ui_path, loaded)
+
+    for lab in loaded.findChildren(QLabel):
+        objnm = (lab.objectName() or "").strip()
+        doc = QTextDocument()
+        doc.setHtml(lab.text() or "")
+        plain = doc.toPlainText().strip()
+        if objnm:
+            answers_obj[objnm] = plain
+        if plain:
+            answers_text[normalize_text_for_compare(plain)] = plain
+
+    # try to close loaded if it is a top-level to avoid stray windows (best-effort)
+    try:
+        loaded.close()
+    except Exception:
+        pass
+
+    return answers_obj, answers_text
+
+class QuizRunner:
+    def __init__(self, parent_window):
+        self.parent_window = parent_window
+        self._active_widget = None
+        self._mapping = {}  # QLineEdit -> info dict
+        self._control_layout_item = None
+
+    def start_quiz(self, exercise_ui_path: str,
+               answers_source_ui: str = None,
+               replace_fraction: float = 0.25,
+               min_replace: int = 1,
+               replace_mode: str = 'full'):
+        """
+        exercise_ui_path: UI file for the exercise (where labels will be replaced)
+        answers_source_ui: UI file (content) from which to pull correct answers.
+        replace_fraction: tỷ lệ label bị thay (0..1)
+        replace_mode: currently only 'full' supported (thay toàn bộ QLabel)
+        """
+        from PyQt6.QtGui import QTextDocument
+        from PyQt6.QtWidgets import (
+            QWidget, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit,
+            QPushButton, QSizePolicy, QGridLayout
+        )
+
+        import random
+
+        # Load answers map if provided
+        answers_by_obj, answers_by_plain = ({}, {})
+        if answers_source_ui:
+            answers_by_obj, answers_by_plain = load_answers_from_ui(answers_source_ui)
+
+        # Load exercise UI
+        try:
+            loaded = uic.loadUi(exercise_ui_path)
+        except TypeError:
+            loaded = QWidget()
+            uic.loadUi(exercise_ui_path, loaded)
+
+        self._active_widget = loaded
+        self._mapping.clear()
+
+        # collect labels usable
+        all_labels = loaded.findChildren(QLabel)
+        usable = []
+        for lab in all_labels:
+            txt = (lab.text() or "").strip()
+            if not txt:
+                continue
+            if txt in ("=", "×", "/"):
+                continue
+            usable.append(lab)
+
+        if not usable:
+            loaded.show()
+            return
+
+        total = len(usable)
+        pick_count = max(min_replace, int(total * replace_fraction))
+        pick_count = min(pick_count, total)
+        to_replace = random.sample(usable, pick_count)
+
+        for lab in to_replace:
+            parent = lab.parentWidget()
+            if parent is None:
+                continue
+
+            doc = QTextDocument()
+            doc.setHtml(lab.text())
+            plain = doc.toPlainText().strip()
+
+            # Determine answer
+            ans = ""
+            objnm = (lab.objectName() or "").strip()
+            if objnm and objnm in answers_by_obj and answers_by_obj[objnm]:
+                ans = answers_by_obj[objnm]
+            else:
+                nplain = normalize_text_for_compare(plain)
+                if nplain and nplain in answers_by_plain:
+                    ans = answers_by_plain[nplain]
+                else:
+                    ans = plain
+
+            container = QWidget(parent)
+            hbox = QHBoxLayout(container)
+            hbox.setContentsMargins(0, 0, 0, 0)
+            hbox.setSpacing(4)
+
+            line = QLineEdit(container)
+            line.setPlaceholderText("...")
+            line.setFixedWidth(20)  # width ban đầu
+            line.setStyleSheet("padding:4px;")
+
+            show_btn = QPushButton("V", container)
+            show_btn.setFixedWidth(20)
+            show_btn.setVisible(False)
+
+            hbox.addWidget(line)
+            hbox.addWidget(show_btn)
+
+
+            def make_show_handler(le=line, correct_ans=ans, sb=show_btn):
+                def handler():
+                    le.setText(correct_ans)
+                    le.setStyleSheet("color: #0a7e07; padding:4px;")
+                    le.setDisabled(True)
+                    sb.setVisible(False)
+                    le.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+                    le.adjustSize()
+                    le.setFixedWidth(40)
+                return handler
+            show_btn.clicked.connect(make_show_handler())
+
+
+
+            parent_layout = parent.layout()
+            if parent_layout is None:
+                geom = lab.geometry()
+                container.setGeometry(geom)
+                container.show()
+                lab.setVisible(False)
+            else:
+                if isinstance(parent_layout, (QVBoxLayout, QHBoxLayout)):
+                    idx = parent_layout.indexOf(lab)
+                    if idx == -1:
+                        parent_layout.addWidget(container)
+                    else:
+                        parent_layout.insertWidget(idx, container)
+
+                elif isinstance(parent_layout, QGridLayout):
+                    pos = parent_layout.getItemPosition(parent_layout.indexOf(lab))
+                    if pos:
+                        row, col, rowspan, colspan = pos
+                        parent_layout.addWidget(container, row, col, rowspan, colspan)
+                    else:
+                        parent_layout.addWidget(container)
+
+                lab.setVisible(False)
+
+            original_width = line.width()
+
+            self._mapping[line] = {
+                "label_widget": lab,
+                "answer_plain": ans,
+                "container": container,
+                "show_btn": show_btn,
+                "original_width": original_width
+
+            }
+
+        # add control buttons to bottom
+        main_layout = self._active_widget.layout()
+        if main_layout is None:
+            wrapper = QWidget()
+            wrapper_layout = QVBoxLayout(wrapper)
+            wrapper_layout.setContentsMargins(6, 6, 6, 6)
+            wrapper_layout.addWidget(self._active_widget)
+            self._active_widget = wrapper
+            main_layout = wrapper_layout
+
+        elif isinstance(main_layout, QGridLayout):
+            wrapper = QWidget()
+            wrapper_layout = QVBoxLayout(wrapper)
+            wrapper_layout.setContentsMargins(6, 6, 6, 6)
+            wrapper_layout.addLayout(main_layout)   # bọc grid cũ vào vbox
+            self._active_widget.setLayout(wrapper_layout)
+            main_layout = wrapper_layout
+
+
+        ctrl_hbox = QHBoxLayout()
+        ctrl_hbox.addStretch(1)
+        btn_reset = QPushButton("Reset (Trả lại)")
+        btn_reset.setFixedHeight(36)
+        btn_check = QPushButton("Check đáp án")
+        btn_check.setFixedHeight(36)
+        ctrl_hbox.addWidget(btn_reset)
+        ctrl_hbox.addWidget(btn_check)
+        main_layout.addLayout(ctrl_hbox)
+
+
+        # check / reset callbacks
+        def do_check():
+            any_shown = False
+            for le, info in self._mapping.items():
+                if not le.isEnabled():
+                    continue
+                user = le.text().strip()
+                corr = info["answer_plain"]
+                n_user = normalize_text_for_compare(user)
+                n_corr = normalize_text_for_compare(corr)
+                if n_user and n_user == n_corr:
+                    le.setStyleSheet("color: #0a7e07; padding:4px;")
+                    le.setDisabled(True)
+                    if info["show_btn"]:
+                        info["show_btn"].setVisible(False)
+                else:
+                    le.setStyleSheet("color: #be1e1e; padding:4px;")
+                    if info["show_btn"]:
+                        info["show_btn"].setVisible(True)
+                        any_shown = True
+
+            # if some wrong, keep buttons visible; otherwise keep them
+            if not any_shown:
+                for le, info in self._mapping.items():
+                    if info["show_btn"]:
+                        info["show_btn"].setVisible(False)
+
+        def do_reset():
+            for le, info in list(self._mapping.items()):
+                lab = info["label_widget"]
+                cont = info["container"]
+                parent = cont.parentWidget()
+                parent_layout = parent.layout()
+                # remove container from layout if present
+                if parent_layout is not None:
+                    try:
+                        parent_layout.removeWidget(cont)
+                    except Exception:
+                        pass
+                cont.setParent(None)
+                cont.deleteLater()
+                lab.setVisible(True)
+            self._mapping.clear()
+            # hide control buttons (or you may keep them)
+            btn_check.setVisible(False)
+            btn_reset.setVisible(False)
+
+        btn_check.clicked.connect(do_check)
+        btn_reset.clicked.connect(do_reset)
+
+        # show the wrapped widget, with a sane default size
+        try:
+            self._active_widget.setMinimumSize(900, 600)
+            self._active_widget.show()
+            self._active_widget.raise_()
+        except Exception:
+            try:
+                loaded.show()
+            except Exception:
+                pass
 
 
 
@@ -689,7 +1154,7 @@ class HoverEffect(QObject):
 class PTable(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("periodic_table.ui", self)
+        uic.loadUi("UI/periodic_table.ui", self)
         for btn in self.findChildren(QPushButton):
             HoverEffect(btn)
 
