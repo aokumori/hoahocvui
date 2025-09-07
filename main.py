@@ -400,7 +400,7 @@ class MainWindow(QMainWindow):
     def eventFilter(self, obj, event):
         if isinstance(obj, QLabel):
             name = (obj.objectName() or "").lower()
-            if name.startswith("arrow") or name.startswith("line"):
+            if name.startswith("arrow") or name.startswith("line") or name.startswith("periodic"):
                 return super().eventFilter(obj, event)
 
             text = obj.text().strip()
@@ -862,7 +862,29 @@ from PyQt6.QtWidgets import QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
 from PyQt6.QtCore import QPropertyAnimation, QEasingCurve, QPoint
 from PyQt6.QtGui import QTextDocument
 
-def normalize_text_for_compare(s: str) -> str:
+from PyQt6.QtGui import QTextDocument
+import unicodedata
+
+from PyQt6.QtGui import QTextDocument
+import unicodedata
+
+SUPERSUB_MAP = str.maketrans({
+    "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4",
+    "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9",
+    "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4",
+    "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9",
+    "ᴹ": "M", "ᵈ": "d", "ᵛ": "v",
+})
+
+EQUIVALENTS = {
+    "axit": ["axit", "+ axit", "acid", "+ acid"],
+    "+ oxit axit": ["oxide acid", "+ oxide acid"],
+    "vdd": ["vdd", "vᵈᵈ"],
+    "mdd": ["mdd", "mᵈᵈ"],
+}
+
+def _normalize_basic(s: str) -> str:
+    """Chỉ normalize: bỏ HTML, accent, supersub, space, lowercase"""
     if s is None:
         return ""
     s = s.strip()
@@ -871,8 +893,21 @@ def normalize_text_for_compare(s: str) -> str:
     s = doc.toPlainText()
     s = unicodedata.normalize("NFD", s)
     s = "".join(ch for ch in s if unicodedata.category(ch) != "Mn")
+    s = s.translate(SUPERSUB_MAP)
     s = " ".join(s.split()).lower()
     return s
+
+def normalize_text_for_compare(s: str) -> str:
+    norm = _normalize_basic(s)
+    # kiểm tra equivalents (đã normalize)
+    for canon, variants in EQUIVALENTS.items():
+        variants_norm = [_normalize_basic(v) for v in variants]
+        if norm in variants_norm:
+            return canon
+    return norm
+
+
+
 
 def load_answers_from_ui(ui_path: str):
     """
@@ -915,237 +950,211 @@ class QuizRunner:
         self._control_layout_item = None
 
     def start_quiz(self, exercise_ui_path: str,
-               answers_source_ui: str = None,
-               replace_fraction: float = 0.25,
-               min_replace: int = 1,
-               replace_mode: str = 'full'):
-        """
-        exercise_ui_path: UI file for the exercise (where labels will be replaced)
-        answers_source_ui: UI file (content) from which to pull correct answers.
-        replace_fraction: tỷ lệ label bị thay (0..1)
-        replace_mode: currently only 'full' supported (thay toàn bộ QLabel)
-        """
-        from PyQt6.QtGui import QTextDocument
-        from PyQt6.QtWidgets import (
-            QWidget, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit,
-            QPushButton, QSizePolicy, QGridLayout
-        )
+                answers_source_ui: str = None,
+                replace_fraction: float = 0.25,
+                min_replace: int = 1,
+                replace_mode: str = 'full'):
+            """
+            Open exercise in a SEPARATE window.
+            Replace random QLabel with QLineEdit + "show answer" button.
+            Skip labels starting with 'I'.
+            """
 
-        import random
+            from PyQt6.QtWidgets import (
+                QWidget, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit,
+                QPushButton, QSizePolicy, QGridLayout
+            )
+            from PyQt6.QtGui import QTextDocument
+            import random
 
-        # Load answers map if provided
-        answers_by_obj, answers_by_plain = ({}, {})
-        if answers_source_ui:
-            answers_by_obj, answers_by_plain = load_answers_from_ui(answers_source_ui)
+            # --- load answers source if given ---
+            answers_by_obj, answers_by_plain = ({}, {})
+            if answers_source_ui:
+                answers_by_obj, answers_by_plain = load_answers_from_ui(answers_source_ui)
 
-        # Load exercise UI
-        try:
-            loaded = uic.loadUi(exercise_ui_path)
-        except TypeError:
-            loaded = QWidget()
-            uic.loadUi(exercise_ui_path, loaded)
-
-        self._active_widget = loaded
-        self._mapping.clear()
-
-        # collect labels usable
-        all_labels = loaded.findChildren(QLabel)
-        usable = []
-        for lab in all_labels:
-            txt = (lab.text() or "").strip()
-            if not txt:
-                continue
-            if txt in ("=", "×", "/"):
-                continue
-            usable.append(lab)
-
-        if not usable:
-            loaded.show()
-            return
-
-        total = len(usable)
-        pick_count = max(min_replace, int(total * replace_fraction))
-        pick_count = min(pick_count, total)
-        to_replace = random.sample(usable, pick_count)
-
-        for lab in to_replace:
-            parent = lab.parentWidget()
-            if parent is None:
-                continue
-
-            doc = QTextDocument()
-            doc.setHtml(lab.text())
-            plain = doc.toPlainText().strip()
-
-            # Determine answer
-            ans = ""
-            objnm = (lab.objectName() or "").strip()
-            if objnm and objnm in answers_by_obj and answers_by_obj[objnm]:
-                ans = answers_by_obj[objnm]
-            else:
-                nplain = normalize_text_for_compare(plain)
-                if nplain and nplain in answers_by_plain:
-                    ans = answers_by_plain[nplain]
-                else:
-                    ans = plain
-
-            container = QWidget(parent)
-            hbox = QHBoxLayout(container)
-            hbox.setContentsMargins(0, 0, 0, 0)
-            hbox.setSpacing(4)
-
-            line = QLineEdit(container)
-            line.setPlaceholderText("...")
-            line.setFixedWidth(20)  # width ban đầu
-            line.setStyleSheet("padding:4px;")
-
-            show_btn = QPushButton("V", container)
-            show_btn.setFixedWidth(20)
-            show_btn.setVisible(False)
-
-            hbox.addWidget(line)
-            hbox.addWidget(show_btn)
-
-
-            def make_show_handler(le=line, correct_ans=ans, sb=show_btn):
-                def handler():
-                    le.setText(correct_ans)
-                    le.setStyleSheet("color: #0a7e07; padding:4px;")
-                    le.setDisabled(True)
-                    sb.setVisible(False)
-                    le.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-                    le.adjustSize()
-                    le.setFixedWidth(40)
-                return handler
-            show_btn.clicked.connect(make_show_handler())
-
-
-
-            parent_layout = parent.layout()
-            if parent_layout is None:
-                geom = lab.geometry()
-                container.setGeometry(geom)
-                container.show()
-                lab.setVisible(False)
-            else:
-                if isinstance(parent_layout, (QVBoxLayout, QHBoxLayout)):
-                    idx = parent_layout.indexOf(lab)
-                    if idx == -1:
-                        parent_layout.addWidget(container)
-                    else:
-                        parent_layout.insertWidget(idx, container)
-
-                elif isinstance(parent_layout, QGridLayout):
-                    pos = parent_layout.getItemPosition(parent_layout.indexOf(lab))
-                    if pos:
-                        row, col, rowspan, colspan = pos
-                        parent_layout.addWidget(container, row, col, rowspan, colspan)
-                    else:
-                        parent_layout.addWidget(container)
-
-                lab.setVisible(False)
-
-            original_width = line.width()
-
-            self._mapping[line] = {
-                "label_widget": lab,
-                "answer_plain": ans,
-                "container": container,
-                "show_btn": show_btn,
-                "original_width": original_width
-
-            }
-
-        # add control buttons to bottom
-        main_layout = self._active_widget.layout()
-        if main_layout is None:
-            wrapper = QWidget()
-            wrapper_layout = QVBoxLayout(wrapper)
-            wrapper_layout.setContentsMargins(6, 6, 6, 6)
-            wrapper_layout.addWidget(self._active_widget)
-            self._active_widget = wrapper
-            main_layout = wrapper_layout
-
-        elif isinstance(main_layout, QGridLayout):
-            wrapper = QWidget()
-            wrapper_layout = QVBoxLayout(wrapper)
-            wrapper_layout.setContentsMargins(6, 6, 6, 6)
-            wrapper_layout.addLayout(main_layout)   # bọc grid cũ vào vbox
-            self._active_widget.setLayout(wrapper_layout)
-            main_layout = wrapper_layout
-
-
-        ctrl_hbox = QHBoxLayout()
-        ctrl_hbox.addStretch(1)
-        btn_reset = QPushButton("Reset (Trả lại)")
-        btn_reset.setFixedHeight(36)
-        btn_check = QPushButton("Check đáp án")
-        btn_check.setFixedHeight(36)
-        ctrl_hbox.addWidget(btn_reset)
-        ctrl_hbox.addWidget(btn_check)
-        main_layout.addLayout(ctrl_hbox)
-
-
-        # check / reset callbacks
-        def do_check():
-            any_shown = False
-            for le, info in self._mapping.items():
-                if not le.isEnabled():
-                    continue
-                user = le.text().strip()
-                corr = info["answer_plain"]
-                n_user = normalize_text_for_compare(user)
-                n_corr = normalize_text_for_compare(corr)
-                if n_user and n_user == n_corr:
-                    le.setStyleSheet("color: #0a7e07; padding:4px;")
-                    le.setDisabled(True)
-                    if info["show_btn"]:
-                        info["show_btn"].setVisible(False)
-                else:
-                    le.setStyleSheet("color: #be1e1e; padding:4px;")
-                    if info["show_btn"]:
-                        info["show_btn"].setVisible(True)
-                        any_shown = True
-
-            # if some wrong, keep buttons visible; otherwise keep them
-            if not any_shown:
-                for le, info in self._mapping.items():
-                    if info["show_btn"]:
-                        info["show_btn"].setVisible(False)
-
-        def do_reset():
-            for le, info in list(self._mapping.items()):
-                lab = info["label_widget"]
-                cont = info["container"]
-                parent = cont.parentWidget()
-                parent_layout = parent.layout()
-                # remove container from layout if present
-                if parent_layout is not None:
-                    try:
-                        parent_layout.removeWidget(cont)
-                    except Exception:
-                        pass
-                cont.setParent(None)
-                cont.deleteLater()
-                lab.setVisible(True)
-            self._mapping.clear()
-            # hide control buttons (or you may keep them)
-            btn_check.setVisible(False)
-            btn_reset.setVisible(False)
-
-        btn_check.clicked.connect(do_check)
-        btn_reset.clicked.connect(do_reset)
-
-        # show the wrapped widget, with a sane default size
-        try:
-            self._active_widget.setMinimumSize(900, 600)
-            self._active_widget.show()
-            self._active_widget.raise_()
-        except Exception:
+            # --- load exercise UI ---
             try:
-                loaded.show()
+                exercise_widget = uic.loadUi(exercise_ui_path)
             except Exception:
-                pass
+                exercise_widget = QWidget()
+                uic.loadUi(exercise_ui_path, exercise_widget)
+
+            # --- wrapper window ---
+            wrapper = QWidget()
+            wrapper.setWindowTitle("Quiz")
+            wrapper_layout = QVBoxLayout(wrapper)
+            wrapper_layout.setContentsMargins(6, 6, 6, 6)
+            wrapper_layout.addWidget(exercise_widget)
+
+            self._active_widget = wrapper
+
+            self._mapping.clear()
+
+            # --- collect usable labels ---
+            all_labels = exercise_widget.findChildren(QLabel)
+            usable = []
+            for lab in all_labels:
+                doc = QTextDocument()
+                doc.setHtml(lab.text() or "")
+                plain = doc.toPlainText().strip()
+                if not plain:
+                    continue
+                if plain in ("=", "×", "/"):
+                    continue
+                if plain.startswith("I"):   # skip yêu cầu của bạn
+                    continue
+                usable.append(lab)
+
+            if not usable:
+                wrapper.show()
+                return
+
+            total = len(usable)
+            pick_count = max(min_replace, int(total * replace_fraction))
+            pick_count = min(pick_count, total)
+            to_replace = random.sample(usable, pick_count)
+
+            for lab in to_replace:
+                parent = lab.parentWidget()
+                if parent is None:
+                    continue
+
+                doc = QTextDocument()
+                doc.setHtml(lab.text() or "")
+                plain = doc.toPlainText().strip()
+
+
+
+                # 🚨 thêm điều kiện skip
+                objnm = (lab.objectName() or "").strip()
+                if plain.startswith("I") or objnm.startswith("heading") or objnm.startswith("line") or objnm.startswith("arrow"):
+                    continue
+
+                # --- xác định đáp án ---
+                ans = ""
+                objnm = (lab.objectName() or "").strip()
+                if objnm and objnm in answers_by_obj and answers_by_obj[objnm]:
+                    ans = answers_by_obj[objnm]
+                else:
+                    nplain = normalize_text_for_compare(plain)
+                    if nplain and nplain in answers_by_plain:
+                        ans = answers_by_plain[nplain]
+                    else:
+                        ans = plain
+
+                # --- tạo QLineEdit + nút show ---
+                container = QWidget(parent)
+                hbox = QHBoxLayout(container)
+                hbox.setContentsMargins(0, 0, 0, 0)
+                hbox.setSpacing(4)
+
+                line = QLineEdit(container)
+                line.setPlaceholderText("...")
+                initial_width = 70
+                line.setFixedWidth(initial_width)
+                line.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+                line.setStyleSheet("padding:4px;")
+
+                show_btn = QPushButton("✓", container)
+                show_btn.setFixedWidth(22)
+                show_btn.setVisible(False)
+
+                hbox.addWidget(line)
+                hbox.addWidget(show_btn)
+
+                def make_show_handler(le=line, correct_ans=ans, sb=show_btn):
+                    def handler():
+                        le.setText(correct_ans)
+                        le.setStyleSheet("color:#0a7e07; padding:4px;")
+                        le.setDisabled(True)
+                        sb.setVisible(False)
+                        # mở rộng để vừa nội dung
+                        fm = le.fontMetrics()
+                        w = fm.horizontalAdvance(correct_ans) + 18
+                        le.setFixedWidth(max(w, 40))
+                        le.setSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+                    return handler
+                show_btn.clicked.connect(make_show_handler())
+
+                parent_layout = parent.layout()
+                if parent_layout is None:
+                    geom = lab.geometry()
+                    container.setGeometry(geom)
+                    container.show()
+                    lab.setVisible(False)
+                else:
+                    if isinstance(parent_layout, (QVBoxLayout, QHBoxLayout)):
+                        idx = parent_layout.indexOf(lab)
+                        if idx == -1:
+                            parent_layout.addWidget(container)
+                        else:
+                            parent_layout.insertWidget(idx, container)
+                    elif isinstance(parent_layout, QGridLayout):
+                        idx = parent_layout.indexOf(lab)
+                        if idx != -1:
+                            row, col, rowspan, colspan = parent_layout.getItemPosition(idx)
+                            parent_layout.addWidget(container, row, col, rowspan, colspan)
+                        else:
+                            parent_layout.addWidget(container)
+                    lab.setVisible(False)
+
+                self._mapping[line] = {
+                    "label_widget": lab,
+                    "answer_plain": ans,
+                    "container": container,
+                    "show_btn": show_btn,
+                    "original_width": initial_width
+                }
+
+            # --- control buttons (bottom of wrapper) ---
+            ctrl_hbox = QHBoxLayout()
+            ctrl_hbox.addStretch(1)
+            btn_reset = QPushButton("Reset (Trả lại)")
+            btn_reset.setFixedHeight(36)
+            btn_check = QPushButton("Check đáp án")
+            btn_check.setFixedHeight(36)
+            ctrl_hbox.addWidget(btn_reset)
+            ctrl_hbox.addWidget(btn_check)
+            wrapper_layout.addLayout(ctrl_hbox)
+
+            # check logic
+            def do_check():
+                for le, info in self._mapping.items():
+                    if not le.isEnabled():
+                        continue
+                    user = le.text().strip()
+                    corr = info["answer_plain"]
+                    n_user = normalize_text_for_compare(user)
+                    n_corr = normalize_text_for_compare(corr)
+                    if n_user == n_corr:
+                        le.setStyleSheet("color:#0a7e07; padding:4px;")
+                        le.setDisabled(True)
+                        info["show_btn"].setVisible(False)
+                        fm = le.fontMetrics()
+                        w = fm.horizontalAdvance(le.text()) + 18
+                        le.setFixedWidth(max(w, 60))
+                    else:
+                        le.setStyleSheet("color:#be1e1e; padding:4px;")
+                        info["show_btn"].setVisible(True)
+
+            # reset logic
+            def do_reset():
+                for le, info in self._mapping.items():
+                    le.setText("")
+                    le.setEnabled(True)
+                    le.setStyleSheet("padding:4px;")
+                    info["show_btn"].setVisible(False)
+                    le.setFixedWidth(info["original_width"])
+                    le.setSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+
+            btn_check.clicked.connect(do_check)
+            btn_reset.clicked.connect(do_reset)
+
+            # cuối cùng show cửa sổ quiz
+            wrapper.showMaximized()
+            wrapper.show()
+
+
 
 
 

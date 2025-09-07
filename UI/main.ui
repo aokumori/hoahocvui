@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>577</width>
+    <width>601</width>
     <height>433</height>
    </rect>
   </property>
@@ -22,9 +22,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
+      <y>30</y>
       <width>181</width>
-      <height>311</height>
+      <height>301</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -54,7 +54,7 @@ QPushButton:hover {
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>原子.png</normaloff>原子.png</iconset>
+         <normaloff>../img/原子.png</normaloff>../img/原子.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -90,7 +90,7 @@ QPushButton:hover {
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>formula.png</normaloff>formula.png</iconset>
+         <normaloff>../img/formula.png</normaloff>../img/formula.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -126,7 +126,7 @@ QPushButton:hover {
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>formula.png</normaloff>formula.png</iconset>
+         <normaloff>../img/memorize.png</normaloff>../img/memorize.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -163,9 +163,9 @@ QWidget {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>20</y>
+       <y>60</y>
        <width>321</width>
-       <height>61</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -201,9 +201,9 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>180</y>
+       <y>200</y>
        <width>321</width>
-       <height>61</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -239,9 +239,9 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>260</y>
+       <y>270</y>
        <width>321</width>
-       <height>61</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -277,9 +277,9 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>100</y>
+       <y>130</y>
        <width>321</width>
-       <height>61</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -311,6 +311,29 @@ QPushButton:hover {
       </size>
      </property>
     </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>321</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #85484c</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Các công thức:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="Quizwidget" native="true">
     <property name="geometry">
@@ -337,9 +360,9 @@ QWidget {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>20</y>
+       <y>60</y>
        <width>321</width>
-       <height>61</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -375,9 +398,9 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>260</y>
+       <y>270</y>
        <width>321</width>
-       <height>61</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -413,9 +436,9 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>100</y>
+       <y>130</y>
        <width>321</width>
-       <height>61</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -451,9 +474,9 @@ QPushButton:hover {
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>180</y>
+       <y>200</y>
        <width>321</width>
-       <height>61</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -485,14 +508,86 @@ QPushButton:hover {
       </size>
      </property>
     </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>321</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #85484c</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Ghi nhớ công thức:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
    </widget>
+   <widget class="QWidget" name="Quizwidget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>30</y>
+      <width>361</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+                                stop:1 #E7D3D3, 
+                                stop:0 #E7D3D3);
+QWidget {
+    border: 4px solid transparent;
+    border-image: linear-gradient(to right, rgba(255,0,0,0.5), rgba(0,255,0,0.5));
+    border-image-slice: 1;
+    background: transparent;
+}
+</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>160</y>
+       <width>201</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #85484c</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Nhấn vào một chức năng bất kì&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>Quizwidget</zorder>
+   <zorder>Formulawidget</zorder>
+   <zorder>verticalLayoutWidget</zorder>
+   <zorder>Quizwidget_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>577</width>
+     <width>601</width>
      <height>18</height>
     </rect>
    </property>

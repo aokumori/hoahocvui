@@ -211,7 +211,7 @@ No
      </widget>
     </item>
     <item row="0" column="4" colspan="12">
-     <widget class="QLabel" name="label_5">
+     <widget class="QLabel" name="periodic">
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:28pt;&quot;&gt;Periodic Table&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
